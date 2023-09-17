@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Government budget sustainability}{3}{0}{1}
+\beamer@sectionintoc {2}{Ricardian equivalence}{5}{0}{2}
+\beamer@sectionintoc {3}{RBC with government}{10}{0}{3}
+\beamer@sectionintoc {4}{Distortionary taxes}{15}{0}{4}
+\beamer@subsectionintoc {4}{1}{Aggregate distortions: tax smoothing}{16}{0}{4}
+\beamer@subsectionintoc {4}{2}{Taxing multiple goods: the Ramsey problem}{22}{0}{4}
+\beamer@subsectionintoc {4}{3}{Capital and labor taxation}{29}{0}{4}

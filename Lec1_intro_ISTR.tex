@@ -1,0 +1,1476 @@
+\documentclass{beamer}
+
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{sidecap}
+\usepackage{caption}
+%\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{appendixnumberbeamer}
+\usepackage{amsmath}
+% --
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{anyfontsize}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}
+
+\newenvironment{itemise} {\begin{itemize} \setlength{\itemsep}{0.2cm}} {\end{itemize}}
+\usepackage[labelformat=empty]{caption}
+\setbeamertemplate{sections/subsections in toc}[square]
+
+%% COLORS
+\definecolor{Gray}{gray}{0.9}
+\definecolor{dblue}{rgb}{0.132,0.1,0.27}
+\definecolor{mint}{cmyk}{1.0, 0.2, 0.6, 0.05}
+\definecolor{ant}{cmyk}{0.5, 0.1, 0.0, 0.45}
+\definecolor{lgray}{cmyk}{0.12, 0.0, 0.0, 0.17}
+\definecolor{lred}{cmyk}{0.0, 0.9, 0.7, 0.0}
+
+
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox 
+\usepackage{booktabs}
+
+\newenvironment{literatur}{%
+  \parskip2pt \parindent0pt \raggedright
+  \def\lititem{\hangindent=0.5cm \hangafter1}}{%
+  \par\ignorespaces}
+
+\newcommand{\tb}[1]{{\color{blue}{\textbf{#1}}}}
+\newcommand{\tm}[1]{{\color{mint}{\textbf{#1}}}}
+\newcommand{\tr}[1]{{\color{red}{\textbf{#1}}}}
+% Ilya: packages
+
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{enumitem}
+
+% Ilya: my commands
+
+\newenvironment{mytemize}
+{\vfill\itemize[nolistsep,itemsep=\fill,label=\color{blue}{$\triangleright$}]}
+  {\enditemize}
+
+\newcommand{\hitem}[1]{
+  {\color{blue}{$\triangleright$}} 
+  {#1} 
+  {\hfill}
+}
+
+\setlist[itemize]{label= \color{blue}{$\triangleright$}}
+
+\newcommand{\rarr}{$\Rightarrow$\ }
+
+\AtBeginSection{%
+\ifshowtoc
+\begin{frame}
+    \tableofcontents[currentsection, subsectionstyle=show/show/hide]
+\end{frame}
+\fi
+}
+
+%\href{<Ziel>}{<Eingefasster Text>} 
+
+%\logo{\includegraphics[height=0.7cm]{BdFlogo.eps}\hspace{300pt}\vspace{-5pt}}
+%\logo{\includegraphics[height=0.8cm]{BdFlogo.eps}}
+%\logo{\pgfputat{\pgfxy(-6.2,-0.5)}{\pgfbox[center,base]{\includegraphics[height=0.8cm]{BdFlogo.eps}}}}
+
+%------------------------------------------------------------------------------------
+% TITLE
+%------------------------------------------------------------------------------------
+\title[PSME]{Macroeconomics\\ Lecture 1 -- Introduction \& IS-TR }
+\author[I. Eryzhenskiy]{Ilya Eryzhenskiy}
+\institute[BdF]{PSME Panth\'{e}on-Sorbonne Master in Economics}
+\date[PSME macro]{Fall 2022}
+
+%---BEGIN------------------------------------------------------------------------------
+\begin{document}
+%---BEGIN------------------------------------------------------------------------------
+\begin{frame}
+\maketitle
+\end{frame}
+
+%---FRAME------------------------------------------------------------------------------
+\section{What is Macro? Why Macro?}
+
+\begin{frame}{%
+\protect\hypertarget{macroeconomics-object-of-study}{%
+Macroeconomics: objects}}
+
+Main objects of study --- \emph{aggregate} measures of economic activity.
+\vfill
+Interactions of various \textbf{markets}\ldots{}
+\vfill
+\begin{columns}[c]
+  \column{0.48\textwidth} 
+  \begin{mytemize}
+\item
+  Goods:
+
+  \begin{mytemize}
+  \item
+    Consumption goods
+  \item
+    Investment goods (capital)
+  \end{mytemize}
+\item
+  Services
+  \end{mytemize}
+  \column{0.48\textwidth} 
+\begin{mytemize}
+ 
+\item
+  Labor
+\item
+  Finance:
+
+  \begin{mytemize}
+   
+  \item
+    Banking
+  \item
+    Market finance
+  \end{mytemize}
+\item
+  Currency
+\end{mytemize}
+
+\end{columns}
+\vfill
+\ldots{}and \textbf{policies}: 
+\vfill
+\ 
+\hitem{Monetary}
+\hitem{Fiscal}
+\hitem{Regulation}
+\\
+\vfill
+One (even huge) market is not ''macro`` enough: e.g. real estate
+
+\end{frame}
+
+\begin{frame}{Macroeconomics: motivation}
+
+  Why care for the macro-economy?
+  \vfill
+\begin{mytemize}
+\item As \tb{households}, we are all affected: 
+  \begin{mytemize}
+  \item Crises \rarr unemployment: lives depend on business cycles
+  \item Need to check macro for big decisions: housing, retirement, own business\ldots
+  \end{mytemize}
+\item \tb{Businesses}: cycles influence demand and supply chains, interest rates, exchange rates, inflation\ldots
+\item \tb{Policymakers}: macro policy is influential. In addition macro phenomena (over-)associate with politics \rarr accountability of politicians
+\end{mytemize}
+\end{frame}
+
+\begin{frame}{%
+\protect\hypertarget{macroeconomics-rules-keynes}{%
+Macroeconomics rules: Keynes}}
+
+\begin{quote}
+Practical men who believe themselves to be quite exempt from any
+intellectual influence, are usually the slaves of some defunct
+economist.
+\end{quote}
+
+\begin{flushright}
+John Maynard Keynes
+\end{flushright}
+
+\vfill
+\textit{N. B.}: Keynes \tr{is} the most influential macroeconomist to date\ldots
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Methodology of Macroeconomics: Theory}
+
+\begin{mytemize}
+\item Macro deals with complex relationships of dynamic variables
+\item Theory with a good deal of \textit{abstraction} necessary:
+\begin{mytemize}
+\item \tb{exogenous} variables are taken as given, ``out of nowhere''
+    \begin{mytemize}
+        \item their changes often called \tr{shocks}
+    \end{mytemize}
+\item \tb{endogenous} variables are explained by the model
+\end{mytemize}
+\end{mytemize}
+
+\begin{center}
+\begin{figure}[h!]
+	\subfigure{\includegraphics[trim=0 300 0 0,clip,width=0.7\textwidth]{FIGURES/1_EconModel}
+	}      
+	%[trim=left bottom right top
+%	\label{fig:GPD} 
+\end{figure}
+%\vspace{-2mm}
+%\begin{minipage}{0.9\columnwidth}
+%\tiny	
+%\textbf{Note.} .\\
+% \textbf{Source.} Jorda-Schularick-Taylor Macrohistory Database \href{http://www.macrohistory.net/data/}{[Link]} .\\
+%\end{minipage}
+\end{center}
+
+\end{frame}
+%% baby background:
+%{
+%\usebackgroundtemplate%
+%{%
+%  %\begin{figure}[b!]
+%  \begin{tikzpicture}
+%	\draw node[opacity=0] at (15,6) {\includegraphics[width=0.3\paperwidth]{baby_logo.png}};%
+%    \draw node[opacity=0.3] at (14.5,-0.4) {\includegraphics[width=0.3\paperwidth]{baby_logo.png}};%
+%    %\draw node[opacity=0.8] at (15.3,6) {\includegraphics[width=0.23\paperwidth]{../PSE_logo.png}};%
+%	\draw node[opacity=0] at (10.3,-1.4) {\includegraphics[width=0.37\paperwidth]{baby_logo.png}};%
+%	\draw node[opacity=0] at (6,-1.4) {\includegraphics[width=0.3\paperwidth]{baby_logo.png}};%
+%  \end{tikzpicture}
+%  %\end{figure}
+%}
+%\begin{frame}{Models can be fun}
+%   Macroeconomic crises and monetary policy can be seen on a real-life historical example of\ldots a \tb{baby-sitters cooperative} 
+%\vfill
+%  \begin{itemize}
+%	\item Parents babysit each others' children
+%	  \vfill
+%	\item A currency --- \textit{scrpis} --- introduced to promote fairness
+%	  \vfill
+%	  \begin{itemize}
+%		\item 1 \textit{scrip} $=$ 1 hour of baby-sitting
+%	  \vfill
+%	\item rigid price set \textit{exogenously}, rather than \textit{endogenously} determined by market
+%	  \vfill
+%	\item each family receives a number of scrips to begin with
+%	  \vfill
+%	  \end{itemize}
+%	  \vfill
+%		\item if a couple wants more babysitting for their child, need to babysit more
+%	  \vfill
+%	\item some have busy periods: cannot babysit, but need babysitting $\Rightarrow$ need excess \textit{reserves} of scrips
+%  \end{itemize}
+%  Source: Joan and Richard Sweeney ``Monetary Theory and the Great Capitol Hill Baby-Sitting Co-op Crisis.'' Journal of Monetary Economics, 1978.
+%\end{frame}
+%\begin{frame}{A crisis}
+%  \begin{itemize}
+%	\item Some babysitting-scripts accounting problems $\Rightarrow$ an episode with a decrease of scrips in circulation: an \tr{exogenous shock} 
+%	  \vfill
+%	\item parents worried they don't have enough reserve scrips and reduce spending\ldots 
+%	  \vfill
+%	\item \ldots others have less scrips, worried they don't have enough, and so on
+%	  \vfill
+%	  \begin{itemize}
+%		\item A vicious cycle / \textit{coordination failure} / bad \textit{equilibrium}
+%	  \end{itemize}
+%	  \vfill
+%	\item a monetary problem (exogenous) causing a decline of activity (endogenous): babysitting has stopped
+%  \end{itemize}
+%\end{frame}
+%}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Methodology of Macroeconomics: Data}
+
+
+\begin{mytemize}
+\item Unrealistic models are fine as long they:
+  \begin{mytemize}
+	\item give novel insights (M. Friedman)
+	\item are \textit{falsifiable} i.e. can be proven wrong (K. Popper)
+  \end{mytemize}
+\item Confronting macro theories with data is challenging:
+\begin{mytemize}
+\item aggregate indices: measurement problems
+\item correlation vs. causality: experimental approach, as in applied micro, rarely applicable
+\item 
+tb{expectations} are crucial, but never directly measurable
+\end{mytemize}
+\item Solutions:
+\begin{mytemize}
+\item vector autoregression (VAR) approach (Nobel prize of C. Sims) -- estimate \tb{impulse responses} to shocks with (almost) no model
+\item estimate theoretical models, compare outputs to data
+
+\end{mytemize}
+\end{mytemize}
+
+\end{frame}
+
+{
+\usebackgroundtemplate%
+{%
+  %\begin{figure}[b!]
+  \begin{tikzpicture}
+	\draw node[opacity=0] at (15,6) {\includegraphics[width=0.3\paperwidth]{FIGURES/yin_yang.png}};%
+    \draw node[opacity=0.05] at (14.5,-0.4) {\includegraphics[width=0.3\paperwidth]{FIGURES/yin_yang.png}};%
+    %\draw node[opacity=0.8] at (15.3,6) {\includegraphics[width=0.23\paperwidth]{../PSE_logo.png}};%
+	\draw node[opacity=0] at (10.3,-1.4) {\includegraphics[width=0.37\paperwidth]{FIGURES/yin_yang.png}};%
+	\draw node[opacity=0] at (6,-1.4) {\includegraphics[width=0.3\paperwidth]{FIGURES/yin_yang.png}};%
+  \end{tikzpicture}
+  %\end{figure}
+}
+\begin{frame}{Macro dichotomies}
+  		\begin{center}
+		  \underline{\textbf{Macroeconomics}}\\
+				\begin{tikzpicture}[xscale = .5, yscale = .5]
+				  \draw[->, very thick] (-0.5, 1)--(-2, 0) ;
+		\draw[->, very thick] (1.25, 1)--(2.75, 0) ;
+		\end{tikzpicture}
+		\end{center}
+		\begin{columns}[T]
+				\column{.48\textwidth}
+				\centering
+			  \underline{\textbf{Theoretical}}
+				\begin{itemize}
+				  \item A zoo of models (see next slides)
+				  \item \tb{Focus for this course}
+				\end{itemize}
+\column{.48\textwidth} 
+				\centering
+\underline{\textbf{Empirical}}
+				\begin{itemize}
+					\item Model estimation
+					  \begin{itemize}
+						  \item 
+							introduction with practical implementation (coding) \tr{in TD}
+						\end{itemize}
+				  \item Time series \& VAR econometrics 
+					\begin{itemize}
+						\item Econometrics class (?)
+					  \end{itemize}
+				\end{itemize}
+				\end{columns}
+		\vfill
+\end{frame}
+
+
+\begin{frame}{Macro dichotomies}
+  		\begin{center}
+		  \underline{\textbf{Macroeconomic models}}\\
+				\begin{tikzpicture}[xscale = .5, yscale = .5]
+				  \draw[->, very thick] (-0.5, 1)--(-2, 0) ;
+		\draw[->, very thick] (1.25, 1)--(2.75, 0) ;
+		\end{tikzpicture}
+		\end{center}
+		\begin{columns}[T]
+				\column{.48\textwidth}
+				\centering
+			  \underline{\textbf{Short-run}}
+				\begin{itemize}
+				  \item Most of macroeconomists' job. Why?
+					\begin{itemize}
+					  \item Immediately applicable?
+					  \item Most politicians' focus?
+					\end{itemize}
+				  \item \tb{Focus of this course}
+				\end{itemize}
+\column{.48\textwidth} 
+				\centering
+\underline{\textbf{Long-run}}
+				\begin{itemize}
+				  \item More substantial problems
+				  \item See Growth course (unless you are in financial track!)
+				\end{itemize}
+				\end{columns}
+		\vfill
+\end{frame}
+\begin{frame}{Macro dichotomies}
+  		\begin{center}
+		  \underline{\textbf{Macroeconomic models}}\\
+				\begin{tikzpicture}[xscale = .5, yscale = .5]
+				  \draw[->, very thick] (-0.5, 1)--(-2, 0) ;
+		\draw[->, very thick] (1.25, 1)--(2.75, 0) ;
+		\end{tikzpicture}
+		\end{center}
+		\begin{columns}[T]
+				\column{.48\textwidth}
+				\centering
+			  \underline{\textbf{Dynamic}}
+				\begin{itemize}
+				  \item The modern approach
+				  \item[] \tb{Most of the course}
+				\end{itemize}
+\column{.48\textwidth} 
+				\centering
+\underline{\textbf{Static}}
+				\begin{itemize}
+				  \item Keynes-Hicks heritage (20th century)
+				  \item[] \tr{Beginning of course} 
+				\end{itemize}
+				\end{columns}
+		\vfill
+\end{frame}
+
+\begin{frame}{Macro dichotomies}
+  		\begin{center}
+		  \underline{\textbf{Macroeconomic models}}\\
+				\begin{tikzpicture}[xscale = .5, yscale = .5]
+				  \draw[->, very thick] (-0.5, 1)--(-2, 0) ;
+		\draw[->, very thick] (1.25, 1)--(2.75, 0) ;
+		\end{tikzpicture}
+		\end{center}
+		\begin{columns}[T]
+				\column{.48\textwidth}
+				\centering
+			  \underline{\textbf{Closed economy}}
+				\begin{itemize}
+				  \item Wild simplification, but\dots
+				  \item \dots most macro scholars based in the U.S. --- large and independent enough \rarr closed economy is 
+					most studied model
+				  \item[] \tb{around $70$\% of course} \end{itemize}
+\column{.48\textwidth} 
+				\centering
+\underline{\textbf{Open economy}}
+				\begin{itemize}
+				  \item Small open economy models: country as \textit{price-taker} 
+      \item[] \tr{around $30 \%$ of course}
+				  \item Large open economy models: country influences prices \item[] \tr{rarely discussed in course}
+				  %\item Open economy parts of course are mostly about \tr{small open economy} 
+				\end{itemize}
+				\end{columns}
+		\vfill
+\end{frame}
+
+\begin{frame}{Macro dichotomies}
+  		\begin{center}
+		  \underline{\textbf{Macroeconomic models}}\\
+				\begin{tikzpicture}[xscale = .5, yscale = .5]
+				  \draw[->, very thick] (-0.5, 1)--(-2, 0) ;
+		\draw[->, very thick] (1.25, 1)--(2.75, 0) ;
+		\end{tikzpicture}
+		\end{center}
+		\begin{columns}[T]
+				\column{.48\textwidth}
+				\centering
+				\underline{\textbf{Flexible price (neoclassical)}}
+				\begin{itemize}
+				  \item Usually result in optimal allocations
+					\begin{itemize}
+					  \item \textit{laissez-faire} economics
+					  \end{itemize}
+					  \item Useful to understand how a perfect world would work --- normative approach
+				  \item[] \tb{Most of the course}
+				\end{itemize}
+\column{.48\textwidth} 
+				\centering
+				\underline{\textbf{Sticky price (Keynesian)}}
+				\begin{itemize}
+				  \item Associated with corrective interventions, such as Keynesian demand management
+				  \item[] \tr{Beginning}, then \tr{second half} of course
+				\end{itemize}
+				\end{columns}
+		\vfill
+\end{frame}
+
+ 
+}
+
+\section{Old Keynesian macro: IS-TR}
+
+
+%---FRAME------------------------------------------------------------------------------
+
+%---FRAME------------------------------------------------------------------------------
+\subsection{The Goods Market}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Price rigidity}
+
+Central \tb{Keynesian assumption:} Prices do not adjust immediately \\
+
+\begin{mytemize}
+\item Price rigidity associated with time horizon: 
+  \begin{mytemize}
+	  \item very short term --- fixed prices (extreme case)
+	  \item short term --- \emph{sticky} prices (slow moving)
+		\item medium or long term --- flexible prices
+	\end{mytemize}
+\item Assuming demand is insufficient under current prices \rarr \tb{demand-driven equilibrium}. \textcolor{mint}{Why? Recall micro equilibrium diagram}
+\begin{mytemize}
+    \item Keynes was inventing a remedy for the Great Depression \rarr natural to assume insufficient demand. Later, this assumption became an axiom for Keynesians
+\end{mytemize}
+
+\end{itemize}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+
+%\begin{frame}{Price rigidities: data}
+%
+%\begin{itemize}
+%\small
+%\item Evidence from the euro area points to sticky prices
+%\end{itemize}
+%
+%\begin{center}
+%%{\small
+%%Figure. Liability = a promise to payout the holder of the note  \\
+%%}
+%
+%%\vspace{-2mm}
+%\begin{figure}[h!]
+%%\caption{Figure. Capital share US, 1946-2018
+%	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+%	%}
+%	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.8\textwidth]{FIGURES/6_PriceChangesEA}
+%	}      
+%	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+%	%} 
+%	
+%%	\label{fig:GPD} 
+%	%[trim=left bottom right top
+%\end{figure}
+%%\vspace{-2mm}
+%
+%\begin{minipage}{1.0\columnwidth}
+%\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+%\textbf{Source.} Dhyne et al (2005) 'Price setting in the euro area: Some stylized facts from individual consumer price data', Figure 1.\\
+%\end{minipage}
+%\end{center}
+%
+%\end{frame}
+
+%\begin{frame}{Preview: General equilibrium}
+%
+%\begin{itemize}
+%\small
+%\item Focus: \tb{goods market} \& \tb{money market}
+%\item \tm{General equilibrium}: all markets clear simultaneously
+%\item $\rightarrow$ market conditions are mutually consistent
+%%\item Preview: Figure
+%\begin{itemize}
+%\small
+%\item (\emph{Note:} We mostly exclude the foreign exchange market in this lecture.)
+%\end{itemize}
+%\end{itemize}
+%
+%\begin{center}
+%%{\small
+%%\tb{Figure.} Frequency of price increases and price decreases \\
+%%}
+%
+%%\vspace{-2mm}
+%\begin{figure}[h!]
+%%\caption{Figure. Capital share US, 1946-2018
+%	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+%	%}
+%	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.75\textwidth]{FIGURES/6_GE}
+%	}      
+%	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+%	%} 
+%	
+%%	\label{fig:GPD} 
+%	%[trim=left bottom right top
+%\end{figure}
+%%\vspace{-2mm}
+%
+%\begin{minipage}{0.6\columnwidth}
+%\tiny	
+%%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+%\textbf{Source.} Burda and Wyplosz (2017), Figure 11.2.\\
+%\end{minipage}
+%\end{center}
+%
+%
+%\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Desired demand for goods -- closed economy}
+Assume a single good is used for consumption 
+($C$), investment ($I$) and government consumption/ investment ($G$). \\
+Desired demand of the three sectors: $C+I+G$ \\
+Denote $Y$ the supply of goods:
+\begin{align*}
+\underbrace{Y}_{\text{supply of goods}}=\underbrace{C+I+G}_{\text{desired demand}}
+\end{align*}
+same formula as GDP decomposition in national accounts, \textbf{but}:
+\begin{mytemize}
+\item It is a statement about a \tb{demand driven equilibrium}: supply adjusts to demand
+\item OK, but what happens if demand suddenly changes?
+\begin{itemize}
+\item classical price adjustment does not work (fixed prices assumption)
+\item instead, firms accumulate and decumulate \tb{inventories} 
+\end{itemize}
+\end{mytemize}
+\end{frame}
+
+\begin{frame}{Desired demand for goods -- open economy}
+The supply and demand must be adjusted for exports and imports:
+\begin{align*}
+Y + \underbrace{Im}_{\text{Imports}} &= C + I + G + \underbrace{Ex}_{\text{Exports}} \\
+\text{or, using\ \ } TB &= Ex - Im, \\
+Y &=C+I+G+\underbrace{TB}_{\text{trade balance}} \end{align*} 
+
+\begin{mytemize}
+    \item Desired demand in open economy includes \tb{trade balance (TB)}
+    \begin{mytemize}
+    \item TB is a.k.a. net exports or \tb{primary current account (PCA)}
+        \item \textcolor{mint}{Notation:} PCA is used instead of TB in the Burda-Wyplosz textbook
+
+        \item We will define what is current account in 3 lectures
+    \end{mytemize}
+\end{mytemize}
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Desired demand -- components}
+
+\tb{Consumption function}
+\begin{equation}
+C= C(\underset{+}{\Omega}, \underset{+}{Y-T}) \tag{11.2}
+\end{equation}
+\begin{itemize}
+\small
+\item $\Omega$ is wealth
+\item $Y$ is household income (since GDP is sum of incomes) 
+\item $T$ is (lump-sum) tax
+\item[\rarr] $Y-T$ is \tb{disposable income} 
+\end{itemize}
+
+\tb{Investment function}
+\begin{equation}
+I = I(\underset{+}{q},\underset{-}{r}) \tag{11.3}
+\end{equation}
+\begin{itemize}
+\small
+\item Tobin's $q$ $\left( q=\frac{\textnormal{market value of installed capital}}{\textnormal{replacement cost of capital}}\right)$
+\item real interest rate, ($r$)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Desired demands -- components (cont'd)}
+    \tb{Trade balance function}
+    $$
+TB = TB(\underset{-}{Y-T},\underset{-}{\sigma}) 
+$$
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%\begin{frame}{Aggregate demand}
+%
+%\tb{Import function}
+%\begin{equation}
+%Z = Z(\underset{+}{A},\underset{+}{\sigma}) \tag{11.5}
+%\end{equation}
+%\begin{itemize}
+%\small
+%\item domestic absorption, $A=C+I+G$
+%\item real exchange rate (\emph{appreciation}), ($\sigma=SP/P^*$, with $S$ denoting the nominal exchange rate, and $P^*$ the foreign price level)
+%\end{itemize}
+%
+%\tb{Export function}
+%\begin{equation}
+%X = X(\underset{+}{A^*},\underset{-}{\sigma}) \tag{11.6}
+%\end{equation}
+%\begin{itemize}
+%\small
+%\item foreign absorption, $(A^*)$
+%\item real exchange rate (\emph{depreciation}), ($\sigma$)
+%\end{itemize}
+%
+%\tb{Net exports}
+%\begin{align}
+%NX = &X(\underset{+}{A^*},\underset{-}{\sigma})-Z(\underset{+}{A},\underset{+}{\sigma}) \nonumber\\
+% =	 & NX(\underset{-}{A},\underset{+}{A^*},\underset{-}{\sigma})   \nonumber\\
+%\text{simplification} \Leftrightarrow NX = & NX(\underset{-}{Y},\underset{+}{Y^*},\underset{-}{\sigma})	\tag{11.8}
+%\end{align}
+%
+%\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Goods market equilibrium}
+
+\tb{Desired demand function}
+\begin{equation}
+DD = C(\underset{+}{\Omega}, \underset{+}{Y-T}) + I(\underset{+}{q},\underset{-}{r}) + G %+ NX(\underset{-}{Y},\underset{+}{Y^*},\underset{-}{\sigma})
+\end{equation}
+\begin{itemize}
+\small
+\item Assumptions:
+\item  (1) $r$ and 
+  %$\sigma$ 
+  $G$ exogenous
+\item  (2) goods market is in \tm{equilibrium} (\alert{supply$=$demand})
+\end{itemize}
+\begin{align*}
+\alert{Y}=DD(Y,r%,\sigma,
+...)
+\end{align*}
+\begin{itemize}
+\small
+\item \alert{$Y$ $\equiv$ 'equilibrium GDP'}
+\item This need not be the case!
+\item What if exogenous variables change?
+\end{itemize}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Goods market equilibrium}{Example 1: excess supply}
+
+\tb{How does a change in $Y$ affect $DD$?}
+\begin{itemize}
+\small
+\item What happens if $Y'$ increases by 1 EUR, such that $Y'>Y$?
+\begin{itemize}
+\small
+\item $C\uparrow$%, $NX\downarrow$
+\item The effect on $C$ dominates
+\item $\rightarrow$ an increase in $DD$ by less then 1 EUR
+\item $\Rightarrow$ $Y'>DD'$ \tb{(excess supply)}
+\end{itemize}
+\item \tm{Dynamic adjustment mechanism}: goods will be stored (\emph{inventories}), future production will be reduced
+\item ... reductions in income until $Y=DD$ holds again
+\end{itemize}
+
+\tb{Discussion}
+\begin{itemize}
+\small
+\item So far, a number of variables exogenous: $P$, $G$, $T$, $\Omega$, $q$, $Y^*$
+\item Intended reduction in complexity, can be \emph{endogenized} later.
+\end{itemize}
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Goods market equilibrium}{Example 2: Keynesian multiplier}
+
+Consider: \tb{Increase in public pending, $\Delta G$}
+\begin{itemize}
+\small
+\item $DD\uparrow$, firms will produce more, ..., $Y\uparrow$
+\item \tm{"Multiplier"}: \emph{By how much does output change, $\Delta Y$?}
+\begin{itemize}
+\small
+\item firms will increase production by $\Delta G$
+\item this generates new income, thus $C\uparrow$ ($I$ too, if $Y\uparrow$\rarr$q\uparrow$)%, $NX\downarrow$
+\item[$\rightarrow$] $Y\uparrow, C\uparrow, Y\uparrow$
+\item additional spending $\Delta C$ is smaller due to \textit{leakages}, so $\Delta Y_2< \Delta Y_1$
+\item leakages (closed economy): \emph{savings, taxes (if proportional)}
+\begin{itemize}
+\small
+\item \tb{marginal propensity to consume}, $0<c<1$
+%\item \tb{marginal propensity to import}, $0<z<1$
+\end{itemize}
+\end{itemize}
+%\item $\Delta Y/\Delta G >1$
+\end{itemize}
+{\small
+\begin{align*}
+\Delta Y =& \Delta G + c\Delta G + c^2\Delta G + ...+c^n\Delta G \\
+	&= \underbrace{\alert{\frac{1}{1-c}}}_{\text{multiplier}>1} \Delta G
+\end{align*}
+\textcolor{ant}{using $1+a+a^2+...+a^n+... = 1/(1-a)$.}
+}
+\end{frame}
+
+%---FRAME------------------------------------------------------------------------------
+\subsection{The Goods Market and the IS Curve}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{The $IS$ curve}
+
+%Next: \tb{Endogenize the nominal interest rate $i$} (on top of output $Y$)
+\begin{itemize}
+\small
+\item IS stands for Investment$=$Saving
+\item Equivalent relationship to $Y = DD$ 
+  \begin{itemize}
+	\item check it with $S = (Y - T- C) + (T - G)$
+  \end{itemize}
+\item assume $i\downarrow$ \rarr $I\downarrow$
+\item \textcolor{ant}{Also, wealth responds indirectly via $q$ and stock prices}
+\item $\Rightarrow$ \tm{IS-curve}: \tb{downward-sloping}, i.e. \alert{negative relationship between output and interest rates} (given $%Y^*, \sigma,
+  T,G$)
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.5\textwidth]{FIGURES/6_IScurve}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.3.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Off the IS curve}
+
+\begin{itemize}
+\small
+\item $IS$ curve describes the \tm{goods market equilibrium}
+\item Off the $IS$ curve:
+\begin{itemize}
+\small
+\item \emph{excess supply} (point $C$, $D$)
+\item \emph{excess demand} (point $A'$)
+\end{itemize}
+\item Temporary deviations from the $IS$ curve are possible
+\item Adjustment will bring output back to \tb{equilibrium level} $Y=DD$
+\item \emph{more in a couple of slides...}
+\end{itemize}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.5\textwidth]{FIGURES/6_IScurve}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+
+\end{frame}
+%%---FRAME------------------------------------------------------------------------------
+%\begin{frame}{Shifts in the IS curve}
+%
+%\begin{itemize}
+%\small
+%\item Changes of \emph{endogenous} variables induce a \tb{movement along} the $IS$ curve ($Y$,$i$)
+%\item Changes of \emph{exogenous} variables lead to a \tb{shift} of the $IS$ curve
+%\item \emph{Example:} exogenous increase in aggregate demand ($G$)
+%\item Multiplier effect: $A$ $\rightarrow$ $B$
+%\item What shifts the $IS$ curve in practice? $G$, $T$, $\Omega$, $Y^*$, Tobin's $q$ (animal spirits)
+%\end{itemize}
+%
+%\begin{center}
+%%{\small
+%%\tb{Figure.} Frequency of price increases and price decreases \\
+%%}
+%
+%%\vspace{-2mm}
+%\begin{figure}[h!]
+%%\caption{Figure. Capital share US, 1946-2018
+%	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+%	%}
+%	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.5\textwidth]{FIGURES/6_IScurveShift}
+%	}      
+%	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+%	%} 
+%	
+%%	\label{fig:GPD} 
+%	%[trim=left bottom right top
+%\end{figure}
+%%\vspace{-2mm}
+%
+%\begin{minipage}{0.6\columnwidth}
+%\tiny	
+%%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+%\textbf{Source.} Burda and Wyplosz (2017), Figure 11.4.\\
+%\end{minipage}
+%\end{center}
+%
+%\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+\subsection{The Money Market, Monetary Policy and the TR Curve}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Taylor rule and the TR curve}
+
+{
+\small
+Nominal interest rates are set by the central bank as a function of the \tb{inflation gap} and the \tb{output gap} (\tm{Taylor rule}):
+\begin{align*}
+i = \bar{i} + a(\pi - \bar{\pi})+ b\left(\frac{Y-\bar{Y}}{\bar{Y}} \right)
+\end{align*}
+Assuming inflation  at its target (for simplicity), this yields
+\begin{align*}
+i = \bar{i} + b\left(\frac{Y-\bar{Y}}{\bar{Y}} \right)
+\end{align*}
+}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{TR curve}
+
+\begin{itemize}
+\small
+\item Monetary policy centered around the \tb{natural rate of interest}, $\bar{i}$, i.e. the nominal interest rate the central bank sets when the economy is on trend output (no demand deficiency).
+\item (Simplified) Taylor rule: Describing pairs $\left\{Y,i \right\}$ consistent with monetary policy
+\item[$\Rightarrow$] \alert{economy always on the TR curve as long as the central bank does its job}
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.4\textwidth]{FIGURES/6_TRcurve}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.6.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Alternative assumption: Targeting Money Supply (LM)}
+  {\small
+\begin{itemize}
+  \item During the 1980s, monetary targeting as main policy tool (M. Friedman)
+\item Gives rise to the \tb{LM curve} (Panel b) (\rarr IS-LM model  of J.R. Hicks)
+\item %\tb{Money market equilibrium}: point $A$. A rise in output leads to higher money demand $M^{d'}$ (point $B$). 
+  LM curve (Panel b) upward sloping: pairs $\left\{i,Y \right\}$ for fixed supply of money $M^S$% \textcolor{red}{(same as case of Taylor Rule $TR_2$ above)}.
+\end{itemize}
+}
+\begin{center}
+\begin{figure}[h!]
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.75\textwidth]{FIGURES/6_LMcurve}
+	}      
+\end{figure}
+\begin{minipage}{1.0\columnwidth}
+\tiny	
+\textbf{Note.} Panel (a) denotes the money market, the vertical $M^S$ line describes the central bank decision. Each money demand curve $M^d$ corresponds to a level of output. Panel (b) 
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.9.\\
+\end{minipage}
+\end{center}
+\end{frame}
+
+\begin{frame}{Money market equilibrium with the TR curve}
+
+\begin{itemize}
+\small
+\item Expansion in GDP leads to higher interest rates (panel a) and higher demand for real money balances $(M/P)'$ (panel b).
+\item \tb{Money market equilibrium} implies that the central bank provides this additional money in the form of reserves, which is consistent with $i$ given by the Taylor rule \alert{$(M^S)$}.
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.9\textwidth]{FIGURES/6_MMequilibrium}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.7.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Slope of the TR curve}
+
+\begin{itemize}
+\small
+\item \emph{How strongly does a central bank react to the output gap?}
+\item The coefficient $b$ in the Taylor rule captures the response.
+\begin{itemize}
+\small
+\item $TR_1$: standard case
+\item $TR_0$: perfectly elastic supply of money %($b=0$)
+\item $TR_2$: extreme case, implying strong fluctuations in $i$ (equivalent to fixing the money supply $M/P$)
+\end{itemize}
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.9\textwidth]{FIGURES/6_TRcurveSlope}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.8.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Shift of the TR curve}
+
+\small
+Interest rate given by the simplified Taylor rule\\
+$i = \bar{i} + b\left(Y-\bar{Y}\right)/\bar{Y}$
+\begin{itemize}
+\scriptsize
+\item Changes in output lead to \tb{movements along the TR curve}
+\item Changes in the degree of 'leaning against the wind' (coef. $b$) lead to a \tb{rotation} of the TR curve (cf. Fig. 11.8)
+\item Changes in the natural rate of interest lead to a \tb{shift in the TR curve} ($\bar{i}=\bar{r}+\bar{\pi}$), $\bar{r}$, natural real rate and $\bar{\pi}$ inflation target
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.5\textwidth]{FIGURES/6_TRcurveShift}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.10.\\
+\end{minipage}
+\end{center}
+
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Context: real natural rates of interest in developed countries}
+
+\begin{itemize}
+\scriptsize
+\item Low frequency changes in the natural rate of interest $\bar{r}$, often denoted \tm{$r^*$} (read as 'r-star')
+\item \tb{Common trends} across countries, strong \tb{convergence} over the last years
+\item Recently, very low levels
+\begin{itemize}
+\scriptsize
+\item $\rightarrow$ \tb{Implication:} Lower and lower levels of $i$ for same level of output growth
+\item $\rightarrow$ \tb{challenges for mon. pol.} in the presence of a zero lower bound (ZLB)
+\end{itemize}
+\end{itemize}
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.6\textwidth]{FIGURES/6_ChangesRstar}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{1.0\columnwidth}
+\tiny	
+\textbf{Note.} Estimates from a Bayesian factor model with country-specific and global trend for the real natural rate of interest, $r^*_i$.
+\textbf{Source.} Del Negro, Giannone, Giannoni and Tambalotti (2019), 'Global trends in interest rates', Figure 3.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Context: zero lower bound on central bank interest rate}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+\caption{Figure. Nominal short-term interest rates in the US, Germany and UK}
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.8\textwidth]{FIGURES/6_NominalRates}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.13.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\subsection{Macroeconomic Equilibrium}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Macroeconomic equilibrium in the IS-TR model}
+
+\begin{itemize}
+\small
+\item Under which conditions are \tb{goods markets} and \tb{money markets} in equilibrium \emph{at the same time}?
+\item What are the effects of changes in \tb{exogenous influences} on output and interest rates?
+\end{itemize}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Macroeconomic equilibrium}
+
+\begin{itemize}
+\small
+\item For goods and money markets to be in equilibrium, economy should be at the \tb{intersection} of the IS and the TR curves, (point $A$)
+\item $\rightarrow$ no excess supply or demand for goods or money!
+%\item (We ignore open economy dimension today.)
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.5\textwidth]{FIGURES/6_MacroEqu}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.11.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Real disturbances: Shifts of the IS curve}
+
+\begin{itemize}
+\footnotesize
+\item Central question: after a disturbance, where is the \emph{new curve} in relation to the \emph{original one}?
+\item Consider an increase in government spending, $G<G'$, 
+\item New equilibrium: $IS'$, point $B$
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.6\textwidth]{FIGURES/6_ISTRadjustments_IS}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.12.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Real disturbances: Propagation of the 'shock'}
+
+  Thinking of cycles in this simple framework:
+\begin{itemize}
+\small
+\item Assume a positive income shock
+\item Higher demand leads to higher output
+\item Keynesian multiplier: higher output = higher income
+\item Additional income leads to higher demand, thus higher output (leakages):
+\item \emph{output $\rightarrow$ income $\rightarrow$ demand $\rightarrow$ output $\rightarrow$ ...}
+\item Where does it end?
+\begin{itemize}
+\small
+\item Leakages: saving, (proportional) taxes\dots %imports
+\item Monetary policy: interest rate $i$ moves along the $TR$ curve upward, dampening demand and output
+\end{itemize}
+\end{itemize}
+Sources of ``shocks'':
+\begin{itemize}
+\small
+\item lump-sum taxes $T$
+\item household wealth $\bar{\Omega}$
+\item Tobin's q
+%\item the real exchange rate $\bar{\sigma}$
+%\item foreign income $Y^*$
+\end{itemize}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Monetary policy disturbances: Shifts of the TR curve}
+
+\begin{itemize}
+\footnotesize
+\item Assume a downward revision of $\bar{i}$ %from $\bar{r}$
+  \begin{itemize}
+\item[$\Rightarrow$] downward shift of the TR curve
+  \end{itemize}
+\item New position: $TR'$, equilibrium at point $D$
+  \begin{itemize}
+\item[$\Rightarrow$] \tm{expansionary} monetary policy
+  \end{itemize}
+\end{itemize}
+
+\begin{center}
+%{\small
+%\tb{Figure.} Frequency of price increases and price decreases \\
+%}
+
+%\vspace{-2mm}
+\begin{figure}[h!]
+%\caption{Figure. Capital share US, 1946-2018
+	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+	%}
+	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.6\textwidth]{FIGURES/6_ISTRadjustments_TR}
+	}      
+	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+	%} 
+	
+%	\label{fig:GPD} 
+	%[trim=left bottom right top
+\end{figure}
+%\vspace{-2mm}
+
+\begin{minipage}{0.6\columnwidth}
+\tiny	
+%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+\textbf{Source.} Burda and Wyplosz (2017), Figure 11.12.\\
+\end{minipage}
+\end{center}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Monetary policy disturbances: Propagation of the 'shock'}
+
+\begin{itemize}
+\small
+\item Lower interest rates lead to higher demand (e.g. Tobin's $q$)
+\item higher investment spending leads to more output and higher income
+\item Keynesian multiplier (net of leakages):
+\item \emph{output $\rightarrow$ income $\rightarrow$ demand $\rightarrow$ output $\rightarrow$ ...}
+\item The nominal rate will change by less than the revision of the natural rate, i.e. $i-i'<\bar{i}-\bar{i}'>0$, due to the \tb{endogenous output response} ($Y\uparrow$) which leads to a muted response in the nominal rate due to the \tb{Taylor rule}.
+\end{itemize}
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{Summary: How to use the IS-TR framework}
+
+\begin{itemize}
+\small
+\item Sometimes, policymakers might ask several questions at the same time:
+\begin{itemize}
+\small
+\item a boost in public spending and a \tb{tax cut}
+\item \tb{fall in natural rate} and an \tb{increase in stock prices}
+\end{itemize}
+\item The \tb{joint effect} has ambiguous sign!
+\item Follow the steps:
+\begin{itemize}
+\small
+\item \tm{Which curve} is affected by the disturbance?
+\item What is the \tm{equilibrium of the new IS and TR curves}
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}{A linear closed economy model}
+  
+\tb{Consumption function}
+\begin{align*}
+C = & a_0 + a_1 \Omega + b(Y-T) \\
+= & a+b(Y-T), 
+\end{align*}
+where $a=a_0 + a_1 \Omega$ sometimes called \tb{autonomous} part of $C$, and $b\leq 1$ is the \tb{marginal propensity to consume}
+\vfill
+\tb{Investment function}
+\begin{align*}
+I = c + dY -ei,
+\end{align*}
+with $c, d, e > 0$ \\
+\vfill
+\tb{Simplified Taylor rule (no inflation)}
+\begin{align*}
+  i = \bar i + \beta(Y- \bar Y)
+\end{align*}
+
+
+\tm{Home task:} solve for the macro equilibrium before first TD.
+%
+%\tb{Exports}
+%\begin{align*}
+%X = x_0 + x_1Y^* -x_2 \sigma
+%\end{align*}
+%
+%\tb{Imports}
+%\begin{align*}
+%Z=z_0+z_1 Y + z_2 \sigma
+%\end{align*}
+%
+%Combining exports and imports yields the \tb{primary current account fct} as
+%\begin{align*}
+%PCA &= f - gY +g^* Y^* -h \sigma,
+%\end{align*}
+%where $f=x_0-z_0$, $g=z_1$, $g^*=x_1$, and $h=x_2+z_2$.
+
+
+
+\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%\begin{frame}{The zero lower bound in the IS-TR model}
+%
+%\begin{center}
+%%{\small
+%%\tb{Figure.} Frequency of price increases and price decreases \\
+%%}
+%
+%%\vspace{-2mm}
+%\begin{figure}[h!]
+%%\caption{Figure. Capital share US, 1946-2018
+%	%\subfigure{\includegraphics<1>[trim=80 60 100 70,clip,width=0.75\textwidth]{FIGURES/3_Autarky}
+%	%}
+%	\subfigure{\includegraphics[trim=0 0 0 0,clip,width=0.45\textwidth]{FIGURES/6_ISTRmodelZLB}
+%	}      
+%	%\subfigure{\includegraphics[trim=0 00 0 00,clip,width=0.6\textwidth]{FIGURES/5_CB_balance_sheet_OMO}
+%	%} 
+%	
+%%	\label{fig:GPD} 
+%	%[trim=left bottom right top
+%\end{figure}
+%%\vspace{-2mm}
+%
+%\begin{minipage}{0.6\columnwidth}
+%\tiny	
+%%\textbf{Note.} Actual examples of trajectories, extracted from the French and Italian CPI databases. The dotted lines indicate events of price changes.
+%\textbf{Source.} Burda and Wyplosz (2017), Figure 11.14.\\
+%\end{minipage}
+%\end{center}
+%
+%\end{frame}
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+
+\begin{frame}{Summary: Macroeconomic equilibrium}
+
+
+\begin{itemize}
+\item \tb{General equilibrium}: all markets clear simultaneously
+\item Keynesian assumption: \tb{prices are rigid/sticky}
+\item \tb{Multiplier} in response to an exogenous increase in demand
+\item $IS$ curve: GDP levels and interest rates compatible with equilibrium in the goods and services market
+\item $TR$ curve: Description of central bank setting of $i$ to stabilize inflation around target and output around potential.
+\item \tb{Macroeconomic equilibrium:} intersection of $IS$ with $TR$ curve
+\end{itemize}
+
+\end{frame}
+
+%%---FRAME------------------------------------------------------------------------------
+%---END------------------------------------------------------------------------------
+%\begin{frame}
+%
+%\vspace{10mm}
+%\begin{center}
+%{\Large
+%\tb{Thank you.}\\
+%}
+%\vspace{10mm}
+%\footnotesize{
+%{\color{dblue}{\texttt{christoph.grossesteffen@banque-france.fr}}
+%}}
+%\end{center}
+%
+%\end{frame}
+%---END------------------------------------------------------------------------------
+\end{document}
+

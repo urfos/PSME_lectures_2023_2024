@@ -1,0 +1,278 @@
+\documentclass{beamer}
+
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{sidecap}
+\usepackage{caption}
+%\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{appendixnumberbeamer}
+\usepackage{amsmath}
+% --
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{anyfontsize}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}
+
+\newenvironment{itemise} {\begin{itemize} \setlength{\itemsep}{0.2cm}} {\end{itemize}}
+\usepackage[labelformat=empty]{caption}
+\setbeamertemplate{sections/subsections in toc}[square]
+
+%% COLORS
+\definecolor{Gray}{gray}{0.9}
+\definecolor{dblue}{rgb}{0.132,0.1,0.27}
+\definecolor{mint}{cmyk}{1.0, 0.2, 0.6, 0.05}
+\definecolor{ant}{cmyk}{0.5, 0.1, 0.0, 0.45}
+\definecolor{lgray}{cmyk}{0.12, 0.0, 0.0, 0.17}
+\definecolor{lred}{cmyk}{0.0, 0.9, 0.7, 0.0}
+
+
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox 
+\usepackage{booktabs}
+
+\newenvironment{literatur}{%
+  \parskip2pt \parindent0pt \raggedright
+  \def\lititem{\hangindent=0.5cm \hangafter1}}{%
+  \par\ignorespaces}
+
+\newcommand{\tb}[1]{{\color{dblue}{\textbf{#1}}}}
+\newcommand{\tm}[1]{{\color{mint}{\textbf{#1}}}}
+\newcommand{\tr}[1]{{\color{lred}{\textit{#1}}}}
+
+%\href{<Ziel>}{<Eingefasster Text>} 
+
+%\logo{\includegraphics[height=0.7cm]{BdFlogo.eps}\hspace{300pt}\vspace{-5pt}}
+%\logo{\includegraphics[height=0.8cm]{BdFlogo.eps}}
+%\logo{\pgfputat{\pgfxy(-6.2,-0.5)}{\pgfbox[center,base]{\includegraphics[height=0.8cm]{BdFlogo.eps}}}}
+
+%------------------------------------------------------------------------------------
+% TITLE
+%------------------------------------------------------------------------------------
+\title[PSME]{Macroeconomics\\ - Lecture 1 -}
+\author[I. Eryzhenskiy]{Ilya Eryzhenskiy}
+\institute[BdF]{PSME Panth\'{e}on-Sorbonne Master in Economics}
+\date[PSME macro]{Fall 2022}
+
+
+%---BEGIN------------------------------------------------------------------------------
+\begin{document}
+%---BEGIN------------------------------------------------------------------------------
+%\begin{frame}
+%\maketitle
+%\end{frame}
+
+
+%---FRAME------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Syllabus}
+%{\color{ant}{[Preliminary]}}
+\resizebox{\linewidth}{!}{% Resize table to fit within \linewidth horizontally
+\begin{tabular}{c c l l}
+\toprule
+\textbf{\#} & \textbf{date*}	  	& \textbf{lecture}	& \textbf{materials}$^{**}$ \\
+% 2021
+\midrule
+1  & 13 sept 	& Introduction, IS-TR, & [BW] Ch.10  \\
+2  & 20 sept	& IS-TR-IFM, Intro to Dynamics  & [BW] Ch.11, ref. \\
+3  & 27 sept	&AD-AS 	& 	 [BW] Ch.13\\
+4  & \ 4 oct    &  Consumption, Savings, Balance of Payments &  [GLS] Ch.9, [SUW] Ch. 2, 3.1 \\
+5  & 11 oct		& Permanent Income Hypothesis &  	[GLS] Ch.10, [U] Ch. 1	\\
+6  & 18 oct		& Labor, intro to Real Business Cycles (RBC)  & [GLS] Ch.12, ref. \\
+-  & 25 oct		& Mid-term &  \\	
+-- & 1 nov	&  \textit{Autumn Break}  \hfill	&  -- \\
+7  & \ 8 nov		& RBC in Closed Economy & 	[S] RBC pt.1 \\
+8  & \ 15 nov & RBC in Closed Economy II & [S] RBC pt.2 \\
+9 & \ 22 nov	 & RBC	in Small Open Economy, simplified Large Op. Ec. & [U] Ch. 3, [SUW] Ch. 6 \\
+10  & 29 nov	& New Keynesian Model I -- flexible prices    & 	[G] Ch.2	\\
+11  & 6 dec	& New Keynesian Model II	\& Time Consistency & [G] Ch.3, 5 \\  
+12 & 13 dec 	& Fiscal Policy	&    [GLS] Ch. 12	\\
+\bottomrule
+\end{tabular}
+}
+\vfill
+\scriptsize
+$*$: Topics may start one week sooner or one later than announced \\
+$**$: For 'ref.', see Other references section  below \\
+
+\end{frame}
+
+\begin{frame}{Textbooks}
+
+%\textbf{Textbooks}
+
+\begin{literatur}
+\small
+
+\lititem [BW] Burda, Michael and Charles Wyplosz (2017) 'Macroeconomics: A European Text', Oxford University Press.
+\vfill
+\lititem [GLS] Gar\`{i}n, Julio, Lester, Robert and Sims, Eric (2021) 'Intermediate Macroeconomics'. Mimeo. %Available at \url{https://juliogarin.com/files/textbook/GLS_Intermediate_Macro.pdf}
+
+\vfill
+\lititem [S] Sims, Eric (2021) 'Ph.D. Macro Theory II'. Lecture Notes. %Available at \url{https://sites.nd.edu/esims/courses/ph-d-macro-theory-ii/}
+\vfill
+\lititem [U] Uribe, Martin (2006) 'Lectures in Open Economy Macroeconomics'. Lecture notes.
+
+\vfill
+\lititem [SUW] Schmitt-Grohe Stephanie, Uribe, Martin and Woodford, Michael (2016) 'International Macroeconomics', Princeton University Press.
+%\lititem [R] Romer, David (2011) 'Advaned Macroeconmics', McGraw-Hill Education.
+
+\vfill
+\lititem [G] Gali, J. (2008) 'Monetary Policy, Inflation, and the Business Cycle', Princeton University Press.
+
+%\lititem Clarida, R., J. Gali and M. Gertler (1999) 'The Science of Monetary Policy: A New Keynesian Perspective', \emph{Journal of Economic Literature}, Vol.37 (December 1999), 1661-1707.
+%\lititem [WA] Walsh, Carl E. (2010) 'Monetary Theory and Policy', 3rd edition, MIT Press.
+  
+\end{literatur}
+
+%\begin{itemize}
+%\item Burda, Michael and Charles Wyplosz (2017) 'Macroeconomics: A European Text', 7th edition, Oxford University Press.
+%\begin{itemize}
+%\item The book explains concepts well from first principles and is therefore suited for students that have not followed a macroeconomic course before. It provides the essential concepts for macroeconomic analysis and policy making with applications to real world data.
+%\end{itemize}
+%\item Blanchard, Olivier (2017) Macroeconmics
+%\begin{itemize}
+%\item similar
+%\end{itemize}
+%\item Garin, Julia, Robert Lester and Eric Sims (2018) Intermediate Macroeconomics, available online, $https://www3.nd.edu/~esims1/gls_int_macro.pdf$
+%\begin{itemize}
+%\item The book has a stronger focus on microeconomic foundations that are now pivotal to modern macroeconomics. It also draws much more on mathematical concepts. Overall, it goes beyond what is covered in this course, but will be consulted occasionally.
+%\end{itemize}
+%\end{itemize}
+
+%\vspace{2mm}
+%\normalsize
+%\textbf{Other required reading}
+%\begin{itemize}
+%\footnotesize
+%\item Will be provided a week before
+%\item Recommended to be read prior to the class
+%\item Available either online or via EPI.
+%\end{itemize}
+%\normalsize
+  
+\end{frame}
+
+\begin{frame}{Other references}
+
+\small
+\begin{itemize}
+%\item \underline{Lecture 1} Justin Wolfers ``A modern approach to teaching business cycles'' \url{https://www.youtube.com/watch?v=iqXnq1_Qe9Y\&pp=ygUOanVzdGluIHdvbGZlcnM\%3D}
+  \item \underline{Lecture 2}  Sargent, T., Stachurski J., ``Samuelson Multiplier-Accelerator``, lecture. \url{https://python.quantecon.org/samuelson.html\#samuelson-multiplier-accelerator}
+  \vfill
+  \item \underline{Lecture 6}  King, R.G. and Rebelo, S.T. (1999) "Resuscitating Real Business Cycles", \emph{Handbook of Monetary Economics}, Vol.1, 927-1007.
+  %\item \underline{Lectures 7-8}  Eric Sims, Graduate Macro Theory lecture series: Real Business Cycle model (qualitative \& quantitative), RBC Extensions  \url{https://www3.nd.edu/~esims1/grad_macro_17.html}
+  %\item \underline{Lecture 9}  Stephanie Schmitt-Grohe, Martin Uribe, International Macroeconomics lecture series (slides): Chapter 4:The Open Economy Real-Business-Cycle Model \url{http://www.columbia.edu/~mu2166/book/}
+  %\item \underline{Lectures 9-10}  Drago Bergholt, The Basic New Keynesian Model lecture series. Chapters 2-4. \url{https://bergholt.weebly.com/uploads/1/1/8/4/11843961/the_basic_new_keynesian_model_-_drago_bergholt.pdf}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Course structure}
+
+{\color{black}{
+{\scriptsize
+\begin{table}[h] 
+\begin{center} 
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textit{Part} & \textit{Time} & \textit{Content} & \textit{Weight} \\
+ \hline
+ & & & \\
+Lectures & 36 hours & See above &  \\
+ & & & \\ \hline
+ & & & \\
+ Tutorials & 22 hours  & Problem sets, model coding, group home task$^*$ & 30\% \\
+ & & & \\ \hline
+ & & & \\
+ Mid-Term & 3 hours & Model exercises, open questions & 35\% \\
+ & & & \\ \hline
+ & & & \\
+Final exam & 3 hours & Model exercises, open questions  & 35\% \\
+ & & & \\ \hline
+ & & & \\
+\textit{Total} & \textit{64 hours} &   & 100\% \\
+ & & & \\ \hline
+ 
+\end{tabular} 
+\end{center}
+\end{table}
+}
+}}
+{ \small
+  $^*$ Home task will be sent out before autumn break and will involve implementation (coding) and estimation of models.
+}
+
+\end{frame}
+
+
+
+
+%---FRAME------------------------------------------------------------------------------
+%---FRAME------------------------------------------------------------------------------
+%\begin{frame}{Suggested reading (cont'd)}
+%
+%\begin{literatur}
+%\scriptsize
+%
+%%\lititem[c9.1] Blanchard, O. (2009), The Crisis: Basic Mechanisms, and Appropriate Policies, IMF, WP 09/80.
+%
+%
+%
+%%\lititem[c10.1] Banco de Portugal (2019) "The natural interest rate: from the concept to the challenges to monetary policy", \emph{Economic Bulletin} (March 2019), Special Issue, 31-48.
+%
+%
+%
+%%\lititem[c12.1]Eichenbaum, M., S. Rebelo, and M. Trabandt (2021) "The Macroeconomics of Epidemics", \emph{Review of Financial Studies}, Vol. 34, 5149–5187.
+%
+%\end{literatur}
+%
+%\end{frame}
+
+%---FRAME------------------------------------------------------------------------------
+%\begin{frame}{Course structure}
+%
+%{\color{black}{
+%{\scriptsize
+%\begin{table}[h] 
+%\begin{center} 
+%\begin{tabular}{|c|c|c|c|}
+%\hline
+%\textit{Structure} & \textit{Time} & \textit{Materials} & \textit{Distribution} \\
+% & \textit{allocation} &  & \textit{final grade}\\ \hline
+% & & & \\
+%Lectures & 39 hours & Slides, discussion &  \\
+% & & & \\ \hline
+% & & & \\
+%Tutorials & 22 hours  & Problem sets + presentations & 30\%$^*$ \\
+% & & & \\ \hline
+% & & & \\
+%% Problem sets & hand-in (groups)  & stata code + Figures & 15\%$^*$ \\
+% %& & & \\ \hline
+% %& & & \\
+%Mid-Term & 3 hours & Exercises + Questions & 35\% \\
+% & & & \\ \hline
+% & & & \\
+%Final exam & 3 hours & Exercises + Questions  & 35\% \\
+% & & & \\ \hline
+% & & & \\
+%\textit{Total} & \textit{61 hours} &   & 100\% \\
+% & & & \\ \hline
+% 
+%\end{tabular} 
+%\end{center}
+%\end{table}
+%}
+%}}
+%{ \tiny
+%$^*$ Problem sets require coding in stata and assembling Figures in a pdf. There will be two hand-in problem sets which can be solved in individually or in groups. Groups need to remain the same for all problem sets.
+%}
+%
+%\end{frame}
+
+%---END------------------------------------------------------------------------------
+\end{document}
+
