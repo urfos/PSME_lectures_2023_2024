@@ -613,37 +613,50 @@ Y &=C+I+G+\underbrace{TB}_{\text{trade balance}} \end{align*}
 \end{mytemize}
 \end{frame}
 %---FRAME------------------------------------------------------------------------------
-\begin{frame}{Desired demand -- components}
+\begin{frame}{Consumption function}
 
-\tb{Consumption function}
-\begin{equation}
-C= C(\underset{+}{\Omega}, \underset{+}{Y-T}) \tag{11.2}
-\end{equation}
+\begin{equation*}
+C= C(\underbrace{Y-T}_{+}, \underset{+}{\Omega}) 
+\end{equation*}
 \begin{itemize}
 \small
 \item $\Omega$ is wealth
 \item $Y$ is household income (since GDP is sum of incomes) 
-\item $T$ is (lump-sum) tax
+\item $T$ is tax (assumed lump-sum, i.e.~independent of any characteristics)
 \item[\rarr] $Y-T$ is \tb{disposable income} 
 \end{itemize}
+\vspace{1cm}
 
-\tb{Investment function}
-\begin{equation}
-I = I(\underset{+}{q},\underset{-}{r}) \tag{11.3}
-\end{equation}
-\begin{itemize}
-\small
-\item Tobin's $q$ $\left( q=\frac{\textnormal{market value of installed capital}}{\textnormal{replacement cost of capital}}\right)$
-\item real interest rate, ($r$)
-\end{itemize}
-
+How to measure the reaction of consumption to a change in disposable income? \\ Take a derivative: $$mpc = \frac{\partial C}{\partial (Y-T)}$ is the \tb{marginal propensity to consume}. An assumption $0<mpc\leq 1$ is central to Keynesian analysis. 
 \end{frame}
 
-\begin{frame}{Desired demands -- components (cont'd)}
+\begin{frame}{Investment function}
+\begin{equation*}
+I = I(\underset{+}{q},\underset{-}{r}) 
+\end{equation*}
+Tobin's $q$ is the ratio of \tb{market value of installed capital} and \tb{replacement cost of capital}%$\left( q=\frac{\textnormal{market value of installed capital}}{\textnormal{replacement cost of capital}}\right)$
+    \begin{itemize}
+        \item \textcolor{mint}{For now, think of ``investor sentiment'' that encourages investment. We will formalize Tobin's $q$ in the RBC model}
+    \end{itemize}
+    \vfill
+Real interest rate $r$ is defined as: \begin{equation*}
+    r = \underbrace{i}_{\text{nominal interest}} - \underbrace{\pi^e}_{\text{expected inflation}}
+\end{equation*}
+
+\textbf{A rise in the real interest discourages investment}: borrowing becomes more expensive, future incomes are valued less (discounting). 
+\end{frame}
+
+\begin{frame}{Trade balance function}
     \tb{Trade balance function}
     $$
-TB = TB(\underset{-}{Y-T},\underset{-}{\sigma}) 
+TB = Ex(\underset{+}{Y^*},\underset{-}{\sigma}) \textcolor{red}{-} Im(\textcolor{red}{\underset{+}{Y}},\underset{+}{\sigma})= TB(\textcolor{red}{\underset{-}{Y}}, \underset{+}{Y^*},\underset{-}{\sigma}) 
 $$
+
+\begin{mytemize}
+    \item $\sigma$ is \tb{real exchange rate}: how expensive are domestic goods relative to foreign goods \tm{(more on this next week)}
+    \item $Y^*$ in $Ex$ and $Y$ in $Im$ are shortcuts: all determinants of foreign demand might be relevant
+\end{mytemize}
+
 \end{frame}
 %---FRAME------------------------------------------------------------------------------
 %\begin{frame}{Aggregate demand}
@@ -679,28 +692,19 @@ $$
 %---FRAME------------------------------------------------------------------------------
 \begin{frame}{Goods market equilibrium}
 
-\tb{Desired demand function}
-\begin{equation}
-DD = C(\underset{+}{\Omega}, \underset{+}{Y-T}) + I(\underset{+}{q},\underset{-}{r}) + G %+ NX(\underset{-}{Y},\underset{+}{Y^*},\underset{-}{\sigma})
-\end{equation}
-\begin{itemize}
-\small
-\item Assumptions:
-\item  (1) $r$ and 
-  %$\sigma$ 
-  $G$ exogenous
-\item  (2) goods market is in \tm{equilibrium} (\alert{supply$=$demand})
-\end{itemize}
+\tb{Desired demand (DD) function}
 \begin{align*}
-\alert{Y}=DD(Y,r%,\sigma,
-...)
+DD &= C(\underset{+}{Y-T}, \underset{+}{\Omega}) + I(\underset{+}{q},\underset{-}{r}) + TB(\underset{-}{Y}, \underset{+}{Y^*},\underset{-}{\sigma})+ G \\
+&= DD(Y,r, \dots)
 \end{align*}
-\begin{itemize}
-\small
-\item \alert{$Y$ $\equiv$ 'equilibrium GDP'}
-\item This need not be the case!
-\item What if exogenous variables change?
-\end{itemize}
+
+where ``$\dots$'' regroups exogenous variables: $T, G, \Omega, q, Y^*, \sigma$.
+\\
+What is the influence of $Y$
+ on DD? Depends on two derivatives:  and $\frac{\partial TB}{\partial Y}$ 
+\begin{mynumerate}
+\item $\frac{\partial C}{\partial (Y-T)}$, which is the \tb{marginal propensity to consume (mpc)} 
+\end{mynumerate}
 
 \end{frame}
 %---FRAME------------------------------------------------------------------------------
