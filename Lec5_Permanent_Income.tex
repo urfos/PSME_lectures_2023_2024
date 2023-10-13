@@ -99,14 +99,87 @@
 
 
 %---FRAME------------------------------------------------------------------------------
-\section{2-period Consumer Problem}
+\section{Multi-period Consumer Problem}
 %---FRAME------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Outline}
 \tableofcontents[currentsection]
 \end{frame}
 %---FRAME------------------------------------------------------------------------------
+\begin{frame}{Multi-period budget constraints}
 
+The consumer lives $T$ periods: from $t=1$ to $t=T$ \\ \vfill
+Initial condition: savings $S_{0}$ with accrued interest $r_{0}$:
+
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+C_{1}+S_{1}&=Y_{1}+\left( 1+r_{0}\right) S_{0}\\
+C_{2}+S_{2}&=Y_{2}+\left( 1+r_{1}\right) S_{1}\\
+&\dots \\
+C_{t+1}+S_{t+1}&=Y_{t+1}+\left( 1+r_{t}\right) S_{t}\\ 
+C_{t+2} + S_{t+2} &= Y_{t+2} + (1+r_{t+1}) S_{t+1} \\
+&\dots \\
+C_{T}+S_{T}&=Y_{T}+( 1+r_{T-1}) S_{T-1}
+\end{aligned}
+\end{cases}
+\end{equation*}
+$T \to \infty$ can also be considered \rarr \tb{infinite-horizon} model
+\end{frame}
+
+
+\begin{frame}{Inter-temporal budget constraint: derivation}
+\vspace{-3.5cm}
+First, solve for $S_1$ in period $2$ budget constraint:
+	\begin{equation*}
+	C_2 + S_{2} = (1+r_1) S_1 + Y_{2} - C_{2} \Leftrightarrow 
+	S_{1} = \frac{C_{2} - Y_{2} - S_{2}}{1+r_1}
+\end{equation*}
+Then, plug this expression of $S_1$ in the period $2$ budget constraint. Then, repeat for $S_{2}, S_{3} \dots S_{T}:$
+	
+\end{frame}
+
+\begin{frame}{Inter-temporal budget constraint}
+    The product of returns from period $1$ to period $t$, $(1+r_1)\cdot(1+r_{2})\cdot ... \cdot (1+r_{t})$, will be denoted $R_{1, t}$ \\
+\vfill 
+Then, the inter-temporal budget constraint with $T$ periods can be written:
+$$\sum_{t=1}^{T} \frac{C_t}{R_{1, t}} = (1+r_{0})S_{0} + \sum_{t=1}^{T} \frac{Y_t}{R_{1, t}} + \underbrace{\frac{S_T}{R_{1, T}}}_{=0}$$
+If we assume $r_t = r$, the expression becomes:
+
+$$\sum_{t=1}^{T} \frac{C_t}{(1+r)^{t}} = (1+r_{0})S_{0} + \sum_{t=1}^{T} \frac{Y_t}{(1+r)^{t}} + \underbrace{\frac{S_T}{(1+r)^{T}}}_{=0}$$
+\end{frame}
+
+\begin{frame}{Lifetime utility}
+Each next period's instanteneous utility gets multiplied by $\beta<1$ one more time: \tm{geometric discounting}
+$$U(C_1, C_{2},\dots C_{T}) = u(C_1) + \beta u(C_{2}) + \beta^{t-1} u(C_{t}) + ... + \beta^{T-1} u(C_{T})$$
+    
+\end{frame}
+
+\begin{frame}{A dynamic Lagrangian}
+It is (paradoxically) more convenient to write a Lagrangian with $T$ period constraints instead of the inter-temporal one \rarr $T$ Lagrange multipliers 
+$ \lambda_t, \lambda_{t+1}, \dots \lambda_{t+T}$:
+$$\mathcal{L} = \sum_{t=1}^{T} \beta^{t-1} [u(C_{t}) + \lambda_{t} (Y_{t}+(1+r_{t-1})S_{t-1}-C_{t}-S_{t})] $$
+\begin{mytemize}
+    \item discounting with $\beta^t$ applies to utility \textbf{and to Lagrange multiplier}
+    \item possible to take a derivative with respect to $S_{t}$ to obtain Euler equation
+\end{mytemize}
+\end{frame}
+
+\begin{frame}{Euler equation as derivative with respect to $S$}
+   Write two periods of the Lagrangian explicitly: 
+\begin{align*}
+\mathcal{L} = \beta^t u(C_t)
+\sum_{s = t}^{t+T} \beta^s [u(C_{s}) + \lambda_{s} (Y_{s}+(1+r_{s})S_{s}-C_{s}-S_{s+1})] $$
+\end{align*}
+\end{frame}
+
+  \begin{frame}{IIP and future trade balances}
+	\vspace{-5cm}
+	$$IIP_{t+1} = (1+r_t) IIP_t + TB_t $$
+	Recursive relationship. Substitute $IPP_{t+1}$, then $IPP_{t+2}$ and so on. Result?
+	
+
+  \end{frame}
   \begin{frame}{Simplified dynamics of IPP}
 	Simplified BOP identity is $CA_t = FA_t$ (no capital account, no errors and omissions)\\
 	\vfill
@@ -117,15 +190,6 @@
 	  &= (1+r_t) IIP_t + TB_t 
 	  \end{align*}
   \end{frame}
-
-  \begin{frame}{IIP and future trade balances}
-	\vspace{-5cm}
-	$$IIP_{t+1} = (1+r_t) IIP_t + TB_t $$
-	Recursive relationship. Substitute $IPP_{t+1}$, then $IPP_{t+2}$ and so on. Result?
-	
-
-  \end{frame}
-
   \begin{frame}{IIP and future trade balances: interpretation}
 	\begin{mytemize}
 	  \item Assume $IIP_t<0$ -- country is a \textbf{net debtor} (not sovereign debt, but all sectors)
