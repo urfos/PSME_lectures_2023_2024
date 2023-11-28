@@ -381,113 +381,6 @@ Three categories of parameters have different calibration approaches: \\
 $\sigma_y$, $\sigma_L$, $\sigma_I $, $\sigma_{TB/Y}$, corr$(\ln Y_t, \ln Y_{t-1})$ 
 \end{frame}
 
-\begin{frame}{Calibration -- details}
-  Simple example of \underline{Category b} calibration -- parameter $\alpha$:
-
-The labor share, $s_L$,  is defined as
-\[
-s_L = \frac{w L }{Y}
-\]
-In the decentralized economy we have
-\[
-A_tf'_L(K_t, L_t) = w_t
-\]
-Thus, in the steady state: 
-\[
-s_L = \frac{A f'_L(K,L) L}{A f(K,L)}
-\]
-Using the Cobb-Douglas form for $f(\cdot)$ yields
-\[
-s_L = (1-\alpha)
-\]
-Hence we have that $\alpha = 1-s_L = 1-0.68 $, that is, 
-\[
-\alpha = 0.32
-\]
-
-\end{frame}
-
-\begin{frame}{Calibration/estimation -- details}
-  Let $\theta$ denote the vector of structural parameters we still need to assign numerical values to, that is, let
-\[
-\theta \equiv \left[
-\begin{array}{cccccc} 
-\omega &
-\bar{d}&
-\phi &
-\psi &
-\rho &
-\tilde{\eta}
-\end{array}
-\right]
-\]
-The choice of these parameters is based on \tb{Simulated Method of Moments}. We proceed in 6 steps: 
-
-\underline{Step 1}: set a value (guess) for each element of $\theta$
-
-\underline{Step 2}: Given the guess for $\omega$ find $L$ using s.s. optimality of capital choice:
-\[
-\frac{K}{L} = \left(\frac{r^* + \delta}{A \alpha}\right)^{\frac1{\alpha-1}}
-\]
-and replace in s.s. consumption-labor optimality:
-\[
-L = \left((1-\alpha) A (K/L)^{\alpha}\right)^{1/(\omega-1)}
-\]
-With $L$ in hand,  find $K$ and $Y$, as $K= (K/L) L$ and $Y = A (K/L)^{\alpha} L$, respectively. 
-
-\end{frame}
-
-\begin{frame}{Calibration/estimation -- details}
-  \underline{Step 3}: Let $s_{TB}$ denote the trade-balance-to-output ratio. In the steady state, 
-$
-s_{TB} = -\frac{r^* IIP}{Y}
-$.
-Solve for $IIP$ to get
-$
-IIP = -\frac{s_{TB} Y }{r^*}
-$ \\
-Then use $p(IIP) = 0$
- and the restriction that $\beta(1+r^*) =1$ to obtain
-$\bar{IIP} = IIP$
-\\ \vfill
-\underline{Step 4}: Find $C$ from s.s. resource constraint:
-$
-C = Y - \delta K - r^* d
-$
-\vfill
-\underline{Step 5}: With the steady state values of $(C,K,L,IIP)$ and all structural parameters obtained, simulate model (e.g. with \tb{Blanchard-Kahn algorithm}) to get the following \tb{second-order moments}: 
-\[
-x(\theta) \equiv
-\left[
-\begin{array}{ccccc}
-\sigma_y & \sigma_L& \sigma_I& \sigma_{TB/Y}&corr(\ln Y_t, \ln Y_{t-1})
-\end{array}
-\right]
-\]
-
-\end{frame}
-
-\begin{frame}{Calibration/estimation -- details}
-\[
-x(\theta) \equiv
-\left[
-\begin{array}{ccccc}
-\sigma_Y & \sigma_L& \sigma_I& \sigma_{TB/Y}&corr(\ln Y_t, \ln Y_{t-1})
-\end{array}
-\right]
-\]
-
-\vfill
-
-\underline{Step 6}: Find \tm{Euclidean distance}
- between vector of moments of simulated data $x(\theta)$ and vector of empirical moments $x^*$: 
-\[
-\mathcal D = ||x(\theta) - x^*||
-\]
-\vfill
-\underline{Step 7}: Adjust elements of $\theta$ until $\mathcal D$ is less than a threshold $\mathcal D^*$.
- 
-\end{frame}
 
 \section{Model Outputs}
 \begin{frame}
@@ -582,9 +475,8 @@ $C$&$IIP$&$L$&$k$\\
 
 
 \centering
-\includegraphics[width = 0.85\linewidth]{FIGURES/soe_rbc_edeir.eps} 
+\includegraphics[width = 0.85\linewidth]{FIGURES/RBC_} 
 
-{\tiny Source: Schmitt-Groh\'e and Uribe (JIE, 2003)}
 
 \end{frame}
 
