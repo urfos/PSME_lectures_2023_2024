@@ -1,6 +1,0 @@
-\beamer@sectionintoc {1}{What is Macro? Why Macro?}{2}{0}{1}
-\beamer@sectionintoc {2}{Old Keynesian macro: IS-TR}{13}{0}{2}
-\beamer@subsectionintoc {2}{1}{The Goods Market}{14}{0}{2}
-\beamer@subsectionintoc {2}{2}{The Goods Market and the IS Curve}{22}{0}{2}
-\beamer@subsectionintoc {2}{3}{The Money Market, Monetary Policy and the TR Curve}{24}{0}{2}
-\beamer@subsectionintoc {2}{4}{Macroeconomic Equilibrium}{32}{0}{2}
