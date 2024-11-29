@@ -105,95 +105,7 @@
   \end{mynumerate}
 \end{frame}
 
-\begin{frame}{Current account and interest rate: partial equilibrium}
-  We now consider the \textbf{partial equilibrium} effect of $r_{t+1}$ on $CA_t$, through $C_t = C(r_{t+1}, \dots)$ and $I_t = I(r_{t+1}, \dots)$.
-  \vfill
-  Recall that interest rate influences consumption through substitution effect and income effect.
-  \begin{mynumerate}
-  \item Substitution effect: higher $r_{t+1}$ \rarr $C_{t+1}$ relatively cheaper with respect to $C_t$ \rarr $C_t$ decreases (seen in Dynamic IS eq.)
-  \item Income effect: less savings needed to guarantee a given level of $C_{t+1}$ \rarr $C_t$ might increase
-  \end{mynumerate}
 
-  \textbf{Assume substitution effect dominates} (e.g. if $u(C) = \ln(C)$), then $C_t = C_t(\underset{-}{r_{t+1}}, \dots)$
-  \vfill 
-  Furthermore, $I_t = I(\underset{-}{r_{t+1}}, \dots)$ obtained before. We get a \textbf{positive dependence of CA on real interest rate}:
-  $$CA_t = \underbrace{Y_t - C(\underset{-}{r_{t+1}},\dots) - I(\underset{-}{r_{t+1}}, \dots)}_{TB_t} +  r_t IIP_t = CA(\underset{+}{r_{t+1}},\dots)$$
-\end{frame}
-
-\begin{frame}{Current account schedule}
-  \begin{columns}
-	\column{0.5\textwidth} CA schedule -- positively sloped line/curve in $(CA, r)$ space (time indexes dropped).\\
-	\vfill
-  Shifted by all the factors other than $r$ that affect current account, e.g.:
-  \begin{mytemize}
-	\item Productivity 
-	\item Household wealth 
-	\item Preferences
-  \end{mytemize}
-\column{0.5\textwidth} 
-  \end{columns}
-  \end{frame}
-
-\section{Partial equilibrium CA analysis} 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents[currentsection]
-\end{frame}
-
-\begin{frame}{Risk premium}
-  \begin{columns}
-	\column{0.5\textwidth} 
-	Heavily indebted economies might be bad borrowers \rarr market imposes a \tb{risk premium}. Simple modelling approach: 
-
-	$$r = r^* + \underbrace{p(\underset{-}{CA})}_{\text{premium}}$$
-  
-  Plot function together with CA schedule $\rightarrow$ graphical solution of equilibrium $r, CA$
-\column{0.5\textwidth} 
-  \end{columns}
-\end{frame}
-
-
-\section{Business Cycles in a Small Open Economy: Data}
-
-\begin{frame}{Canadian Economy: Business-Cycle Statistics}
-  Canada -- developed economy, but 2.1 \% of world GDP \rarr ``small'' (compare to China -- 18.4\%; USA -- 24\% -- large open economies). 
-  \vfill
-  We will seek to explain historical business-cycle patterns: 1946-1985.
-  \vfill
-\centerline{
-\begin{tabular}{|c|c|c|c|}
-\hline
-Variable ($x_t$)&\multicolumn{3}{|c|}{Moments}\\
-\cline{2-4}
-&$\sigma_{x_t}$
-&corr$(x_t,x_{t-1})$
-&corr$(x_t,Y_t)$
-\\
-\hline
-$Y$           &  2.8&  0.61&      1\\
-$C$           &  2.5&   0.7&   0.59\\
-$I$           &  9.8&  0.31&   0.64\\
-$L$           &    2&  0.54&    0.8\\
-$\frac{TB}{Y}$&  1.9&  0.66&  -0.13\\
-\hline
-\end{tabular}}
-
-\centerline{\tiny Source: Mendoza AER, 1991. Annual data. Log-quadratically detrended.}
-
-
-\end{frame}
-
-\begin{frame}{Canadian Economy: Business-Cycle Patterns}
-\begin{mytemize}
-\item Volatility ranking:
-$\sigma_{TB/Y}<$$\sigma_C<$$\sigma_Y<$$\sigma_I$. 
-\item Consumption, investment, and labor hours are \tb{procyclical}. 
-\item The trade-balance-to-output ratio is \tb{countercyclical}. 
-\item All variables have a positive autoregressive coefficient. 
-\item Similar patterns hold for other \textit{developed} SOEs. 
-\end{mytemize}
-
-\end{frame}
 \section{Real Business Cycles in Small Open Economy (SOE RBC)}
 
 \begin{frame}
@@ -202,50 +114,38 @@ $\sigma_{TB/Y}<$$\sigma_C<$$\sigma_Y<$$\sigma_I$.
 \end{frame}
 
 \begin{frame}{A SOE RBC model}
-  We extend the RBC framework to include exchanges with the rest of the world. Specific elements:
+  The RBC framework extended to include exchanges with the rest of the world:
   \begin{mynumerate}
-    \item \tb{Capital adjustment cost} limits impact of investment on \tb{trade balance}
-  \item \tb{Interest rate premium}, or external debt-elastic interest rate (EDEIR) assumption
-	\begin{itemize}
-	  \item Introduced for technical purposes: necessary for model convergence
-	\end{itemize}
-  \item (not obligatory) Utility maximization w.r.t. \tb{resource constraint} of economy instead of budget constraint 
-	\begin{itemize}
-	  \item[\rarr] We solve \tr{social planner}'s optimization problem, which is still equivalent to finding decentralized equilibrium (1st Welfare Theorem)
-	\vfill
-	\end{itemize}
-
+  \item Foreign assets held instead of domestic bonds \rarr \tb{IIP} variable
+  \item Exogenous interest rate \rarr steady state existence and stability problem \rarr an additional assumption on foreign asset holding is needed 
+	\begin{mytemize}
+	  \item we focus on \tb{interest rate premium}, or external debt-elastic interest rate (EDEIR) assumption
+	\end{mytemize}
+    \item \tb{Capital adjustment cost} limits volatility of investment \rarr limits volatility of \tb{trade balance}
   \end{mynumerate}
 \end{frame}
 
-\begin{frame}{Planner's Maximization Problem}
+\begin{frame}{Household Problem (in Social Planner form)}
 \begin{equation*}
 \label{eq:soe-rbc-utility-edeir}
-\max_{\{C_t, I_t, IIP_{t+1}, K_{t+1}\}_0^{\infty}} E_0 \sum_{t=0}^{\infty} \beta^t u(C_t,L_t)
+\max_{C_t, N_t, IIP_{t+1}, K_{t+1}} E_0 \sum_{t=0}^{\infty} \beta^t u(C_t,N_t)
 \end{equation*}
 subject to
 \begin{equation*}
 \label{eq:soe-rbc-bc-edeir}
-C_t + I_t + IIP_{t+1} + \Phi(K_{t+1}-K_t) = 
-A_t f(K_t,L_t)+ (1+r_t)IIP_{t}
+C_t + K_{t+1} - (1-\delta) K_t + IIP_{t+1} + \Phi(K_{t+1}-K_t) = 
+A_t F(K_t,N_t)+ (1+r_{t-1})IIP_{t}
 \end{equation*}
 \begin{equation*}
-\label{eq:soe-rbc-i-edeir}
-K_{t+1} = (1-\delta)K_t + I_t
-\end{equation*}
-\begin{equation*}
-  K_0, IIP_0, A_0 \ \ \text{-- given}; \quad \ln A_{t+1} = \rho \ln A_t + \widetilde{\eta}  \epsilon_{t+1}
+  K_0, IIP_0 \ \ \text{-- given}; \quad \ln A_{t} = \rho \ln A_{t-1} +  \epsilon_{t}
   \label{eq:init}
 \end{equation*}
 
 \vfill
 $\Phi(\cdot)$ is a convex \tb{capital adjustment cost} function with $\Phi(0)=\Phi'(0) =0$; $\Phi''(\cdot)>0 $
 \vfill
-A transversality condition for IIP applies: 
-$\lim_{j \rightarrow \infty}
-E_t
-\frac{IIP_{t+j}}{\prod_{s=0}^j(1+r_s)} \geq 0
-$
+Notice a (yet) another type of utility function: non-separable, with labor and not leisure as argument: $u(\underset{+}{C_t}, \underset{-}{N_t})$ 
+%A transversality condition for IIP applies:  $\lim_{j \rightarrow \infty} E_t \frac{IIP_{t+j}}{\prod_{s=0}^j(1+r_s)} \geq 0 $
 
 \end{frame}
 
@@ -253,18 +153,18 @@ $
   $\frac{\partial \mathcal L}{\partial C_t}$:
 \begin{equation*}
 \label{eq:soe-rbc-foc-c-edeir}
- u'_C(C_t,L_t)
+ u'_C(C_t,N_t)
 = \lambda_t 
 \end{equation*}
 $\frac{\partial \mathcal L}{\partial IIP_{t+1}}$:
 \begin{equation*}
 \label{eq:soe-rbc-foc-d-edeir}
-\lambda_t = \beta (1+r_{t+1})E_t\lambda_{t+1}
+\lambda_t = \beta (1+r_{t})E_t\lambda_{t+1}
 \end{equation*}
-$\frac{\partial \mathcal L}{\partial L_{t}}$:
+$\frac{\partial \mathcal L}{\partial N_{t}}$:
 \begin{equation*}
 \label{eq:soe-rbc-foc-h-edeir}
--u'_L(C_t,L_t) = \lambda_tA_t f'_L(K_t,L_t)
+-u'_N(C_t,N_t) = \lambda_t A_t F'_N(K_t,N_t)
 \end{equation*}
 $\frac{\partial \mathcal L}{\partial K_{t+1}}$:
 \begin{align*}
@@ -273,7 +173,7 @@ $\frac{\partial \mathcal L}{\partial K_{t+1}}$:
 = \beta
 E_t \frac{\lambda_{t+1}}{\lambda_t }
 &\left[
-A_{t+1}f'_K(K_{t+1},L_{t+1})
+A_{t+1} F'_K(K_{t+1}, N_{t+1})
 + \right.\\ &\left.1-\delta + \Phi'(K_{t+2}-K_{t+1})
 \right]
 \end{align*}
@@ -281,14 +181,13 @@ $\frac{\partial \mathcal L}{\partial \lambda_t}$:
 \begin{equation*}
 \label{eq:soe-rbc-bc-combined-edeir}
 C_t + K_{t+1}-(1-\delta)K_t+ IIP_{t+1}+\Phi(K_{t+1}-K_t) 
-= A_t f(K_t,L_t)+ (1+r_t)IIP_t
+= A_t F(K_t,L_t)+ (1+r_{t-1})IIP_t
 \end{equation*}
  
 \end{frame}
 
 \begin{frame}{Interest Rate Premium/ EDEIR}
-  In this model, the assumption of External debt-Elastic Interest Rate (EDEIR) has a technical role: it makes the model converge to a steady state. 
-Formula as before:
+  \tb{External debt-Elastic Interest Rate (EDEIR)}: for this model it is mostly a trick to achieve existence and stability of steady state. \\
 \begin{equation*}
 \label{eq:soe-rbc-r-edeir}
 r_t = r^* + p(\underset{-}{IIP_t})
@@ -297,8 +196,9 @@ r_t = r^* + p(\underset{-}{IIP_t})
 \item $r^*=$ world interest rate, assumed  \textbf{constant}\\
 \item $p(IIP_t)=$  country interest-rate premium, decreasing in IIP (increasing in external debt)
   \begin{mytemize}
-  \item Note that the function treats negative and positive IIP symmetrically, so the interpretation is wider (and less intuitive) than a risk-based interest rate premium 
+  \item intuition: high debt \rarr repayment risk \rarr premium
   \end{mytemize}
+\item "External" means that \textbf{the household takes the premium as given} i.e. we do not use the function when obtaining $\frac{\mathcal{L}}{IIP_{t+1}}$
 \end{mytemize}
 %\\
 %$\tilde{d}_t=$ cross-sectional average of debt
@@ -428,6 +328,10 @@ f(K,L) = K^{\alpha}L^{1-\alpha}; \quad \alpha \in (0,1)
 6 structural parameters: $\sigma$, $\omega$, $\psi$, $\bar{IIP}$, $\alpha$, $\phi$
 \end{frame}
 
+\begin{frame}{Euler equation in small open economy}
+    $$u'_C(C_t, N_t) = \beta $$
+\end{frame}
+
 \begin{frame}{Steady State}
   using the assumed functional forms,  
   the steady state $(IPP, K, C , L)$ is solution to a system (with $A=1$): 
@@ -477,113 +381,6 @@ Three categories of parameters have different calibration approaches: \\
 $\sigma_y$, $\sigma_L$, $\sigma_I $, $\sigma_{TB/Y}$, corr$(\ln Y_t, \ln Y_{t-1})$ 
 \end{frame}
 
-\begin{frame}{Calibration -- details}
-  Simple example of \underline{Category b} calibration -- parameter $\alpha$:
-
-The labor share, $s_L$,  is defined as
-\[
-s_L = \frac{w L }{Y}
-\]
-In the decentralized economy we have
-\[
-A_tf'_L(K_t, L_t) = w_t
-\]
-Thus, in the steady state: 
-\[
-s_L = \frac{A f'_L(K,L) L}{A f(K,L)}
-\]
-Using the Cobb-Douglas form for $f(\cdot)$ yields
-\[
-s_L = (1-\alpha)
-\]
-Hence we have that $\alpha = 1-s_L = 1-0.68 $, that is, 
-\[
-\alpha = 0.32
-\]
-
-\end{frame}
-
-\begin{frame}{Calibration/estimation -- details}
-  Let $\theta$ denote the vector of structural parameters we still need to assign numerical values to, that is, let
-\[
-\theta \equiv \left[
-\begin{array}{cccccc} 
-\omega &
-\bar{d}&
-\phi &
-\psi &
-\rho &
-\tilde{\eta}
-\end{array}
-\right]
-\]
-The choice of these parameters is based on \tb{Simulated Method of Moments}. We proceed in 6 steps: 
-
-\underline{Step 1}: set a value (guess) for each element of $\theta$
-
-\underline{Step 2}: Given the guess for $\omega$ find $L$ using s.s. optimality of capital choice:
-\[
-\frac{K}{L} = \left(\frac{r^* + \delta}{A \alpha}\right)^{\frac1{\alpha-1}}
-\]
-and replace in s.s. consumption-labor optimality:
-\[
-L = \left((1-\alpha) A (K/L)^{\alpha}\right)^{1/(\omega-1)}
-\]
-With $L$ in hand,  find $K$ and $Y$, as $K= (K/L) L$ and $Y = A (K/L)^{\alpha} L$, respectively. 
-
-\end{frame}
-
-\begin{frame}{Calibration/estimation -- details}
-  \underline{Step 3}: Let $s_{TB}$ denote the trade-balance-to-output ratio. In the steady state, 
-$
-s_{TB} = -\frac{r^* IIP}{Y}
-$.
-Solve for $IIP$ to get
-$
-IIP = -\frac{s_{TB} Y }{r^*}
-$ \\
-Then use $p(IIP) = 0$
- and the restriction that $\beta(1+r^*) =1$ to obtain
-$\bar{IIP} = IIP$
-\\ \vfill
-\underline{Step 4}: Find $C$ from s.s. resource constraint:
-$
-C = Y - \delta K - r^* d
-$
-\vfill
-\underline{Step 5}: With the steady state values of $(C,K,L,IIP)$ and all structural parameters obtained, simulate model (e.g. with \tb{Blanchard-Kahn algorithm}) to get the following \tb{second-order moments}: 
-\[
-x(\theta) \equiv
-\left[
-\begin{array}{ccccc}
-\sigma_y & \sigma_L& \sigma_I& \sigma_{TB/Y}&corr(\ln Y_t, \ln Y_{t-1})
-\end{array}
-\right]
-\]
-
-\end{frame}
-
-\begin{frame}{Calibration/estimation -- details}
-\[
-x(\theta) \equiv
-\left[
-\begin{array}{ccccc}
-\sigma_Y & \sigma_L& \sigma_I& \sigma_{TB/Y}&corr(\ln Y_t, \ln Y_{t-1})
-\end{array}
-\right]
-\]
-
-\vfill
-
-\underline{Step 6}: Find \tm{Euclidean distance}
- between vector of moments of simulated data $x(\theta)$ and vector of empirical moments $x^*$: 
-\[
-\mathcal D = ||x(\theta) - x^*||
-\]
-\vfill
-\underline{Step 7}: Adjust elements of $\theta$ until $\mathcal D$ is less than a threshold $\mathcal D^*$.
- 
-\end{frame}
 
 \section{Model Outputs}
 \begin{frame}
@@ -672,74 +469,14 @@ $C$&$IIP$&$L$&$k$\\
 %
 %\end{frame}
 
-\begin{frame}{Empirical vs. Simulated Second Moments}
-
-
-{\small
-\begin{center}
-\begin{tabular}{|c|ccc|ccc|ccc|}
-\hline
-&\multicolumn{6}{|c|}{Canadian Data}&&&\\
-&\multicolumn{3}{c|}{1946 to 1985}&\multicolumn{3}{c|}{1960 to 2011}&\multicolumn{3}{|c|}{Model}\\
-&$\sigma_{x_t}$ &$\rho_{x_t,x_{t-1}}$ &$\rho_{x_t,Y_t}$ 
-&$\sigma_{x_t}$ &$\rho_{x_t,x_{t-1}}$ &$\rho_{x_t,Y_t}$
-&$\sigma_{x_t}$  &$\rho_{x_t,x_{t-1}}$ &$\rho_{x_t,Y_t}$\\
- \hline
-$Y$  &  2.8&  0.6& 1 
-&   3.7&  0.9&  1
-&  3.1 &  0.6&  1
-\\
-$C$
-&  2.5&   0.7&   0.6  
-&   2.2&  0.7&  0.6
-&  2.7&  0.8&  0.8
-\\
-$I$ &  9.8&  0.3&   0.6   
-&  10.3&  0.7&  0.8
-&  9.0&  0.1&  0.7
-\\
-$L$&    2.0&  0.5&    \tm{0.8}   
-&   3.6&  0.7&  \tm{0.8}
-&  2.1&  0.6&  \tr{1}
-\\
-$\frac{TB}{Y}$
-&  1.9&  0.7&  -0.1  
-&   1.7&  0.8&  0.1
-&  1.8&  0.5&  -0.04
-\\
-$\frac{CA}{Y}$& -   &   -  &     -   & -&-&-&  1.4&  0.3&  0.05\\
-\hline
-\end{tabular}
-\end{center}
-
-}
-
-
-\begin{mytemize}
-\item   $\sigma_L$, $\sigma_I$, $\sigma_Y$,
-$\sigma_{TB/Y}$, and $\rho_{Y_t,Y_{t-1}}$  were targeted by calibration, so no real test  here.  
-
-\item  model correctly places $\sigma_C$ 
-below $\sigma_Y$ and $\sigma_I$ and above $\sigma_L$ and $\sigma_{TB/Y}$.  
-
-\item  model correctly makes $TB/Y$ \tb{countercyclical}. 
-
-\item   model \tr{overestimates} the correlations of hours and consumption with output (due to GHH utility). 
- 
-\end{mytemize}
-
-
-\end{frame}
-
 \begin{frame}{Positive Productivity Shock -- impulse responses} 
 
 %\label{fig:mendoza91} 
 
 
 \centering
-\includegraphics[width = 0.85\linewidth]{FIGURES/soe_rbc_edeir.eps} 
+\includegraphics[width = 0.99\linewidth]{FIGURES/SOE_RBC_6IRF.png} 
 
-{\tiny Source: Schmitt-Groh\'e and Uribe (JIE, 2003)}
 
 \end{frame}
 
@@ -774,6 +511,155 @@ Recall $TB_t = Y_t - C_t - I_t$. With large adj. cost, investment response weak 
 %Produced with: Z:\uribe\book\soe_rbc\edeir\edeir_sensitivity\edeir_run.m
 More persistent the productivity shock \rarr smaller impulse response of TB (recall temporary vs. permanent shocks in the 2-period model). For $\rho>0.3$ (productivity persistent enough), the response of TB is negative.
 
+\end{frame}
+
+
+
+\section{Business Cycles in a Small Open Economy: Data}
+
+\begin{frame}{Canadian Economy: Business-Cycle Statistics}
+  Canada -- developed economy, but 2.1 \% of world GDP \rarr ``small'' (compare to China -- 18.4\%; USA -- 24\% -- large open economies). 
+  \vfill
+  We will seek to explain historical business-cycle patterns: 1946-1985.
+  \vfill
+\centerline{
+\begin{tabular}{|c|c|c|c|}
+\hline
+Variable ($x_t$)&\multicolumn{3}{|c|}{Moments}\\
+\cline{2-4}
+&$\sigma_{x_t}$
+&corr$(x_t,x_{t-1})$
+&corr$(x_t,Y_t)$
+\\
+\hline
+$Y$           &  2.8&  0.61&      1\\
+$C$           &  2.5&   0.7&   0.59\\
+$I$           &  9.8&  0.31&   0.64\\
+$L$           &    2&  0.54&    0.8\\
+$\frac{TB}{Y}$&  1.9&  0.66&  -0.13\\
+\hline
+\end{tabular}}
+
+\centerline{\tiny Source: Mendoza AER, 1991. Annual data. Log-quadratically detrended.}
+
+
+\end{frame}
+
+\begin{frame}{Canadian Economy: Business-Cycle Patterns}
+\begin{mytemize}
+\item Volatility ranking:
+$\sigma_{TB/Y}<$$\sigma_C<$$\sigma_Y<$$\sigma_I$. 
+\item Consumption, investment, and labor hours are \tb{procyclical}. 
+\item The trade-balance-to-output ratio is \tb{countercyclical}. 
+\item All variables have a positive autoregressive coefficient. 
+\item Similar patterns hold for other \textit{developed} SOEs. 
+\end{mytemize}
+
+\end{frame}
+
+
+\begin{frame}{Second-order Moments: RBC vs. Data}
+
+
+{\small
+\begin{center}
+\begin{tabular}{|c|ccc|ccc|ccc|}
+\hline
+&\multicolumn{3}{c|}{Canada, 1960-2011}&\multicolumn{3}{|c|}{Model}\\
+&$\sigma_{x_t}$ &$corr(x_t,x_{t-1})$ &$corr(x_t,Y_t)$ 
+&$\sigma_{x_t}$ &$corr(x_t,x_{t-1})$ &$corr(x_t,Y_t)$
+\\
+ \hline
+$Y$  
+&   3.7&  0.9&  1
+&  3.1 &  0.6&  1
+\\
+$C$ & 2.2&  0.7&  0.6
+&  2.7&  0.8&  0.8
+\\
+$I$ &  10.3&  0.7&  0.8
+&  9.0&  0.1&  0.7
+\\
+$N$     &   3.6&  0.7&  \tm{0.8}
+&  2.1&  0.6&  \tr{1}
+\\
+$\frac{TB}{Y}$  &   1.7&  0.8&  0.1
+&  1.8&  0.5&  -0.04
+\\
+\hline
+\end{tabular}
+\end{center}
+
+}
+
+
+\begin{mytemize}
+\item   $\sigma_L$, $\sigma_I$, $\sigma_Y$,
+$\sigma_{TB/Y}$, and $\rho_{Y_t,Y_{t-1}}$  were targeted by calibration, so no real test  here.  
+
+\item As before, the model correctly ranks $\sigma_C < \sigma_Y < \sigma_I$. The trade balance (normalized by GDP) correctly has $\sigma_{TB/Y}$ < $\sigma_Y$
+
+\item  model correctly makes $TB/Y$ \tb{countercyclical}. 
+
+\item   model \tr{overestimates} the correlations of hours and consumption with output (due to GHH utility). 
+ 
+\end{mytemize}
+
+
+\end{frame}
+
+\section{Current account in partial equilibrium} 
+
+\begin{frame}{$C$, $I$ and interest rate: partial equilibrium}
+  We now consider the \textbf{partial equilibrium} effect of $r_{t+1}$ on $CA_t$, through $C_t = C(r_{t}, \dots)$ and $I_t = I(r_{t}, \dots)$.
+  \vfill
+  Recall that interest rate influences consumption through substitution effect and income effect.
+  \begin{mynumerate}
+  \item Substitution effect: higher $r_{t+1}$ \rarr $C_{t+1}$ relatively cheaper with respect to $C_t$ \rarr $C_t$ decreases (seen in Dynamic IS eq.)
+  \item Income effect: less savings needed to guarantee a given level of $C_{t+1}$ \rarr $C_t$ might increase
+  \end{mynumerate}
+
+  \textbf{Assume substitution effect dominates} (e.g. if $u(C) = \ln(C)$), then $C_t = C_t(\underset{-}{r_{t}}, \dots)$
+  \vfill 
+  Furthermore, $I_t = I(\underset{-}{r_{t}}, \dots)$, because firms' optimal $K_{t+1}$ depends negatively on $R_{t+1}$ and $r_t$ is positively correlated with $R_{t+1}$ in equilibrium.
+\end{frame}
+
+\begin{frame}{Trade balance, Current account in parial equilibrium}
+
+We get a \textbf{positive dependence of both TB and CA on real interest rate}:
+      $$TB_t = Y_t - C(\underset{-}{r_{t}},\dots) - I(\underset{-}{r_{t}}, \dots)= TB(\underset{+}{r_{t}},\dots)$$
+      $$CA_t = \underbrace{Y_t - C(\underset{-}{r_{t}},\dots) - I(\underset{-}{r_{t}}, \dots)}_{TB_t} +  r_{t-1} IIP_t = CA(\underset{+}{r_{t}},\dots)$$
+\end{frame}
+
+\begin{frame}{Current account schedule}
+  \begin{columns}
+	\column{0.5\textwidth} CA schedule -- positively sloped line/curve in $(CA, r)$ space (time indexes dropped).\\
+	\vfill
+  Shifted by all the factors other than $r$ that affect current account, e.g.:
+  \begin{mytemize}
+	\item Productivity 
+	\item Household wealth 
+	\item Preferences
+  \end{mytemize}
+\column{0.5\textwidth} 
+  \end{columns}
+  \end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{Risk premium}
+  \begin{columns}
+	\column{0.5\textwidth} 
+	Heavily indebted economies might be bad borrowers \rarr market imposes a \tb{risk premium}. Simple modelling approach: 
+
+	$$r = r^* + \underbrace{p(\underset{-}{CA})}_{\text{premium}}$$
+  
+  Plot function together with CA schedule $\rightarrow$ graphical solution of equilibrium $r, CA$
+\column{0.5\textwidth} 
+  \end{columns}
 \end{frame}
 
 \section{Large Open Economy -- Patial Equilirium}
@@ -845,6 +731,5 @@ More persistent the productivity shock \rarr smaller impulse response of TB (rec
   \centering
   \alert{Congratulations, prof. Bernanke!}
 \end{frame}
-
 
 \end{document}

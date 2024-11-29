@@ -18,6 +18,22 @@
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{footline}
 
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection,currentsubsection]
+    \end{frame}
+}
+
 \newenvironment{itemise} {\begin{itemize} \setlength{\itemsep}{0.2cm}} {\end{itemize}}
 \usepackage[labelformat=empty]{caption}
 \setbeamertemplate{sections/subsections in toc}[square]
@@ -42,6 +58,10 @@
 \newcommand{\tb}[1]{{\color{blue}{\textbf{#1}}}}
 \newcommand{\tm}[1]{{\color{mint}{\textbf{#1}}}}
 \newcommand{\tr}[1]{{\color{red}{\textbf{#1}}}}
+\newcommand{\trs}[1]{{\color{red}{#1}}}
+\newcommand{\tms}[1]{{\color{mint}{#1}}}
+\newcommand{\tps}[1]{{\color{purple}{#1}}}
+
 % Ilya: packages
 
 \usepackage{tikz}
@@ -99,48 +119,223 @@
 
 
 %---FRAME------------------------------------------------------------------------------
-\section{2-period Consumer Problem}
+\section{Multi-period consumer problem}
 %---FRAME------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents[currentsection]
+\begin{frame}{Multi-period budget constraints}
+
+The consumer lives from $t=0$ till $t=T$ ($T+1$ periods) \\ \vfill
+Initial condition: savings $S_{-1}$ with interest $r_{-1}$:
+
+\begin{equation*}
+\begin{cases}
+\begin{aligned}
+C_{0}+S_{0}&=Y_{0}+\left( 1+r_{-1}\right) S_{-1}\\
+C_{1}+S_{1}&=Y_{1}+\left( 1+r_{0}\right) S_{0}\\
+&\dots \\
+C_{t} + S_{t} &= Y_{t} + (1+r_{t-1}) S_{t-1} \\
+C_{t+1}+S_{t+1}&=Y_{t+1}+\left( 1+r_{t}\right) S_{t}\\ 
+&\dots \\
+C_{T}+S_{T}&=Y_{T}+( 1+r_{T-1}) S_{T-1}
+\end{aligned}
+\end{cases}
+\end{equation*}
+$T \to \infty$ can also be considered \rarr \tb{infinite-horizon} model
 \end{frame}
-%---FRAME------------------------------------------------------------------------------
 
-  \begin{frame}{Simplified dynamics of IPP}
-	Simplified BOP identity is $CA_t = FA_t$ (no capital account, no errors and omissions)\\
-	\vfill
-	Replace in the IPP dynamics formula (without valuation changes): 
-	  \begin{align*}
-	  IIP_{t+1} &= IIP_t + CA_t \\
-	  			&= IIP_t + TB_t + r_t IIP_t \\
-	  &= (1+r_t) IIP_t + TB_t 
-	  \end{align*}
-  \end{frame}
 
-  \begin{frame}{IIP and future trade balances}
-	\vspace{-5cm}
-	$$IIP_{t+1} = (1+r_t) IIP_t + TB_t $$
-	Recursive relationship. Substitute $IPP_{t+1}$, then $IPP_{t+2}$ and so on. Result?
+\begin{frame}{Inter-temporal budget constraint: step by step}
+\begin{mynumerate}
+    \item Solve for $S_0$ in period \tr{1} budget constraint:
+	\begin{equation*}
+	C_1 + S_{1} = (1+r_0) S_0 + Y_{1} - C_{1} \Leftrightarrow 
+	S_{0} = \frac{C_{1} - Y_{1} - S_{1}}{1+r_0}
+    \end{equation*}
+ \item Plug the obtained expression of $S_0$ in the period \tr{0} budget constraint. $S_0$ is eliminated, but now $S_1$ in period 0 constraint 
+ \item Do step 1 for $S_1$ in period \tr{2} constraint
+ \item Plug obtained expression of $S_1$ back into equation of step 2. $S_1$ eliminated, but now $S_2$ in the equation
+ \item Repeat for $S_{2}, S_{3} \dots S_{T}$
+\end{mynumerate}
+
 	
+\end{frame}
 
+\begin{frame}{Inter-temporal budget constraint}
+    Denote cumulative returns as follows: $R_{0,0} = 1,\ R_{0,1} = (1+r_0), R_{0,2} = (1+r_0)(1+r_1)$ and $R_{0,t} = (1+r_0)(1+r_{1}) ... (1+r_{t-1})$\\
+\vfill 
+Then, the inter-temporal budget constraint with $T$ periods is:
+$$\sum_{t=0}^{T} \frac{C_t}{R_{0, t}} = (1+r_{-1})S_{-1} + \sum_{t=0}^{T} \frac{Y_t}{R_{0, t}} + \underbrace{\frac{S_T}{R_{0, T}}}_{=0}$$
+If we assume constant $r_t = r$, then $R_{0,t} = (1+r)^{t}$ and we obtain:
+
+$$\sum_{t=0}^{T} \frac{C_t}{(1+r)^{t}} = (1+r)S_{-1} + \sum_{t=0}^{T} \frac{Y_t}{(1+r)^{t}} + \underbrace{\frac{S_T}{(1+r)^{T}}}_{=0}$$
+
+    For $T\to \infty$, sufficient to assume that $S$ does not grow/fall at a rate faster than $r$: $\lim_{T\to \infty}{\frac{S_T}{(1+r)^{T}}}=0$ -- \tb{transversality condition} 
+\end{frame}
+
+\begin{frame}{Lifetime utility}
+Each next period's instanteneous utility gets multiplied by $\beta<1$ one more time: \tm{geometric discounting}
+\begin{align*}
+U(C_0, C_{1},\dots C_{T}) &= u(C_0) + \beta u(C_{1}) +...+ \beta^{t} u(C_{t}) + ... + \beta^{T} u(C_{T}) \\
+&= \sum_{t=0}^{T} \beta^t u(C_t)
+\end{align*}
+\end{frame}
+
+\begin{frame}{A dynamic Lagrangian}
+It is (paradoxically) more convenient to write a Lagrangian with $T+1$ period constraints instead of the inter-temporal one \rarr $T+1$ Lagrange multipliers 
+$ \lambda_0, ..., \lambda_{t}, ..., \lambda_{T}$:
+$$\mathcal{L} = \sum_{t=0}^{T} \beta^{t} [u(C_{t}) + \lambda_{t} (Y_{t}+(1+r_{t-1})S_{t-1}-C_{t}-S_{t})] $$
+\begin{mytemize}
+    \item discounting with $\beta^t$ applies to \textbf{both} period $t$ utility and period $t$ Lagrange multiplier (it doesn't mean anything, done for convenience)
+    \item to obtain the Euler equation, derivative w.r.t. $C_t$ and either $C_{t+1}$ \textbf{or} $S_t$ \textcolor{mint}{($S_t$ is harder, but useful for future models)}
+\end{mytemize}
+\end{frame}
+
+\begin{frame}{Euler equation as derivative with respect to $S_t$}
+   Write periods $t$ and $t+1$ of the Lagrangian explicitly to see that $S_t$ appears twice:  \begin{align*}
+\mathcal{L} =& 
+%\sum_{k=0}^{t-1}\beta^k &[u(C_k) + \lambda_{k} (Y_{k}+(1+r_{k-1})S_{k-1}-C_{k}-S_{k})] \\
+  u(C_0) + \lambda_{0} (Y_{0}+(1+r_{-1})S_{-1}-C_{0}-S_{0})  \\
+  &+ \dots \\
+  &+\beta^t [u(C_t) + \lambda_{t} (Y_{t}+(1+r_{t-1})S_{t-1}-C_{t}-\textcolor{red}{S_{t}})] \\
+  &+\beta^{t+1} [u(C_{t+1}) + \lambda_{t+1} (Y_{t+1}+(1+r_{t})\textcolor{red}{S_{t}}-C_{t+1}-S_{t+1})] \\
+   &+ \dots \\
+  &+\beta^T [u(C_T) + \lambda_{T} (Y_{T}+(1+r_{T-1})S_{T-1}-C_{T}-S_{T})] 
+\end{align*}
+\end{frame}
+
+\section{Permanent Income Hypothesis}
+
+\subsection{A simplified model}
+\begin{frame}{Permanent income hypothesis: simplifying assumptions}
+   To simplify the study of temporary and permanent income shocks, make two assumptions: 
+   \begin{enumerate}
+       \item Constant real interest $r_t = r$
+       \item $\beta = \frac{1}{1+r}$
+   \end{enumerate}
+   \vfill 
+   Then, a constant consumption level $C_t = \bar C$ follows from Euler equation: 
+   \begin{align*}
+       \frac{u'(C_t)}{\beta u'(C_{t+1})} = 1+r &\Leftrightarrow u'(C_t) = \beta (1+r) u'(C_{t+1})  \\
+       &\Leftrightarrow u'(C_t) = \frac{1}{1+r} (1+r) u'(C_{t+1}) \\ &\Leftrightarrow u'(C_t) = u'(C_{t+1}) \Leftrightarrow \textcolor{red}{C_t = C_{t+1} = \bar C}
+   \end{align*}
+
+This is an extreme case of \tb{consumption smoothing}
+\end{frame}
+
+\begin{frame}{Permanent consumption: calculation}
+\vspace{-5cm}
+   Substitute constant consumption level in intertemporal budget constraint, then use sum of geometric series: 
+\end{frame}
+
+\begin{frame}{Permanent consumption and income shocks: temporary}
+   $$\bar C = \frac{1-\beta}{1-\beta^{T+1}}\left[(1+r_{-1})S_{-1} + \sum_{t=0}^T \beta^t Y_t\right]$$ 
+   where $\frac{1-\beta}{1-\beta^{T+1}}<1$ \tm{(check this using $\beta^{T+1}<\beta$)} \\
+   \vfill
+Derivative with respect to income in $t=0$: $\frac{\partial \bar C}{\partial Y_0} = \frac{1-\beta}{1-\beta^{T+1}}$ \\
+This is the \tb{mpc} in the Keynesian sense: share of increase in \textbf{current} income that is consumed. \\ 
+\vfill
+The mpc is smaller when the lifespan $T$ is larger. \\ If $T \to \infty,$ mpc $= 1-\beta$ \\
+\vfill
+Derivative with respect to income in any period $t$: $\frac{\partial \bar C}{\partial Y_t} = \beta^t \frac{1-\beta}{1-\beta^{T+1}} $ \\
+The \textbf{further} in the future the income shock, the \textbf{smaller the reaction} of permanent consumption 
+   
+\end{frame}
+
+\begin{frame}{Permanent consumption and income shocks: permanent}
+   $$\bar C = \frac{1-\beta}{1-\beta^{T+1}}\left[(1+r)S_{-1} + \sum_{t=0}^T \beta^t Y_t\right]$$ 
+   \vfill
+   Take a total differential (with $d S_{-1} = 0$): 
+   $$d \bar C = \frac{1-\beta}{1-\beta^{T+1}}\sum_{t=0}^T \beta^t d Y_t$$ 
+Now consider a \tb{permanent shock}: $ d Y_0 = ... = d Y_t = ... = d Y_T:$
+ $$d \bar C = \frac{1-\beta}{1-\beta^{T+1}} \cdot d Y_t  \cdot \sum_{t=0}^T \beta^t= d Y_t \cdot \underbrace{\frac{1-\beta}{1-\beta^{T+1}} \cdot \frac{1-\beta^{T+1}}{1-\beta}}_{=1}$$
+We obtain $d \bar C = d Y_t$, \textbf{a one-to-one reaction of consumption to a permanent change in income} 
+\end{frame}
+
+\begin{frame}{Savings response to temporary and permanent shocks}
+    What happens to inital period savings $S_0$ under different income shocks? \\
+    \vfill Use formula $S_0 = (1+r)S_{-1} + Y_0 - C_0$:
+
+    \begin{mynumerate}
+        \item Temporary shock of current income $Y_0 \uparrow$:  \\ $C_0 \uparrow$, but $d Y_0 > d C_0$ because mpc $< 1$ \rarr \tr{$S_0 \uparrow$}
+        \item Temporary shock of future income $Y_t$: \\ only $C_0 \uparrow$ in period 0 \rarr \tr{$S_0 \downarrow$}
+        \item Permanent income shock: \\ one-to-one change in $C_0$ and $Y_0$ \rarr \tr{$S_0$ unchanged} 
+    \end{mynumerate}
+\end{frame}
+
+\subsection{Uncertainty}
+\begin{frame}{Uncertain income}
+
+   Suppose now that income $\{Y_t\}_{t=0}^T$ is a random variable%, for example  an \tb{independently, identically distributed (i.i.d.)} normal variable: $Y_t \sim \matcal N (\bar Y, \sigma^2)$ \\
+   \vfill
+   Consumer then maximizes \tb{expected utility} \\
+   \vfill
+   $E_t X_k$ is expectation of period $k$ variable under information available in $t$ \\ \vfill The expected utility in period $0$ is $\tps{E_0} \sum_{t=0}^T \beta^t u(C_t)$
+%   \begin{align*}
+%       \max\ &E_0 \sum_{t=0}^T \beta^t u(C_t) \\
+%       \text{s.t.}\ &C_t + S_t = Y_t + (1+r_{t-1}S_{t-1})    
+%   \end{align*}
+\vfill
+   The Lagrangian then also has an expectation:
+$$\mathcal{L} = \tps{E_0}\ \sum_{t=0}^{T} \beta^{t} [u(C_{t}) + \lambda_{t} (Y_{t}+(1+r_{t-1})S_{t-1}-C_{t}-S_{t})] $$
+We will write the FOC for $S_t$ under \textbf{period $t$ information}:
+$$\lambda_t = \beta \tps{E_t} [(1+r_t) \lambda_{t+1}] \ \Leftrightarrow \
+u'(C_t) = \beta \tps{E_t} [(1+r_t)u'(C_{t+1})]$$
+\end{frame}
+
+\begin{frame}{Permanent income under uncertainty}
+    Assume again $r_t = r$ and $\beta = \frac{1}{1+r}$ \\ \vfill
+    Then, the Euler equation with information of period $t$ becomes: $$u'(C_t) = E_t u'(C_{t+1})$$
+    If we also assume  a quadratic $u$, then we get $C_t = E_t C_{t+1}$ \rarr consumer \textbf{expects} to have constant consumption; consumption can only change due to \tb{unexpected shocks}
+\end{frame}
+
+\section{Multi-period small open economy}
+
+  \begin{frame}{Multi-period IIP dynamics}
+  A small open economy exists for $T+1$ periods $t=0, 1 ... T$.  \\ $IIP_t$ is \textbf{IIP of beginning of period $t$}. World interest rate is constant at $r$. $IIP$ dynamics depends on $TB$ as before:
+	  \begin{align*}
+   IIP_1 &= (1+r) IIP_0 + TB_0 \\
+   &... \\
+	  IIP_{t+1} &= (1+r) IIP_t + TB_t \\
+	  IIP_{t+2} &= (1+r) IIP_{t+1} + TB_{t+1} \\
+   &... \\
+   IIP_T &= (1+r) IIP_{T-1} + TB_{T-1}
+	  \end{align*}
+   Country cannot have debts in last period ($IIP_{T} \geq 0$) nor hold assets in other countries ($IIP_{T} \leq 0$), so $IIP_{T} = 0$ 
   \end{frame}
+  
+  \begin{frame}{IPP and future trade balances step by step}
+	In order to obtain the relationship of initial IIP and all the trade balances, same approach as with inter-temporal budget constraint: 
+\begin{mynumerate}
+    \item Solve for $IIP_1$ in equation with $TB_1$:
+	\begin{equation*}
+	IIP_2 = (1+r) IIP_1 + TB_1 \Leftrightarrow 
+	IIP_{1} = \frac{-TB_1 + IIP_{2}}{1+r}
+    \end{equation*}
+ \item Plug the obtained expression of $IIP_1$ in the equation with $TB_0$. $IIP_1$ is eliminated, but now $IIP_2$ in the equation
+ \item Do step 1 for $IIP_2$ in equation with $TB_2$
+ \item Plug obtained expression of $IIP_2$ back into initial equation. $IIP_2$ eliminated, but now $IIP_3$ in the equation
+ \item Repeat for $IIP_{3}, IPP_{4}, ... IIP_{T}$
+\end{mynumerate}
+\end{frame}
 
-  \begin{frame}{IIP and future trade balances: interpretation}
-	\begin{mytemize}
-	  \item Assume $IIP_t<0$ -- country is a \textbf{net debtor} (not sovereign debt, but all sectors)
-	  \item Then, country must run future \tb{trade surplus} on average (with more importance to surpluses that are in near future)
-		\begin{mytemize}
-		\item Otherwise, debts cannot be repaid
-		\end{mytemize}
-	  \item Assume $IIP_t>0$ -- country is a \textbf{net creditor} of rest of the world 
-	  \item Then, country must run future \tb{trade deficits} on average (with more importance to deficits that are in near future)
-		\begin{mytemize}
-		\item Otherwise, debts of non-residents cannot be repaid
-		\end{mytemize}
-	\end{mytemize}
-	\vfill
-	\rarr Perpetual trade surpluses / trade deficits can be sustainable if very negative/very positive IIP to begin with. \textbf{$\{r_t\}$ matter, too}
-  \end{frame}
+\begin{frame}{Multi-period economy: trade balance and solvency}
+$$IIP_0 = \sum_{t=0}^T\frac{-TB_t}{(1+r)^{t+1}} + \underbrace{\frac{IIP_{T}}{(1+r)^{T+1}}}_{=0}$$
+According to the initial value of International Investment Position, several scenarios for values of trade balance:
+\begin{mytemize}
+    \item If $IIP_t=0$, then trade deficit in one period must be compensated by a surplus in \textbf{at least one} other period
+    \item If $IIP_{t} > 0$, it is possible to have a trade deficit in each period and remain solvent
+    \item If $IIP_{t} < 0$, the economy may have to run trade surpluses every period to remain solvent. The earlier the surplus, the bigger role it has for debt repayment (interest accumulation)
+\end{mytemize}
+\vfill
+Transversality condition for $T \to \infty$: $\lim_{T\to \infty}\frac{IIP_T}{(1+r)^{T+1}}=0$
+\end{frame}
 
+\begin{frame}{Summary}
+    \begin{mytemize}
+        \item We studied microeconomics of consumption choice and dynamics of small open economies
+        \item A consumer has forward-looking behaviour that leads to mpc$<1$ and reaction to future income shocks
+        \item Under specific assumptions on interest rate and discount factor, consumption is constant and reacts one-to-one to permanent income shocks
+        \item Under uncertainty, expected utility is maximized subject to current information. Under simplifying assumptions, consumption changes only after unexpected shocks
+        \item A small open economy has international investment position that changes with current account flows. In a representative consumer economy, IIP has similar dynamics to consumer savings 
+    \end{mytemize}
+\end{frame}
 \end{document}
